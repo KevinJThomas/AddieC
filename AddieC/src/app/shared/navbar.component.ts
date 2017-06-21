@@ -4,9 +4,9 @@ import { Component } from '@angular/core';
     selector: 'nav-bar',
     template: `
                 <ul>
-                    <li><img src="http://placekitten.com/g/40/40" alt="CAT IMG"></li>
-                    <li><a href="#">About</a></li>
-                    <li style="float:right"><a href="#">Login</a></li>
+                    <li><a [routerLink]="['/']"><img src="http://placekitten.com/g/40/40" alt="CAT IMG"></a></li>
+                    <li><a [routerLink]="['/about']">About</a></li>
+                    <li style="float:right"><a [routerLink]="['/user']">Login</a></li>
                 </ul>
     `,
     styleUrls: ['./navbar.component.css']
