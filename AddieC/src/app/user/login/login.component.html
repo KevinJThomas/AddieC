@@ -1,1 +1,32 @@
 <h1>Login Menu</h1>
+
+<form>
+    <div>
+        <label>Username
+            <input type="text" placeholder="Email Address" id="email" [(ngModel)]="email" name="email" required #em="ngModel">
+            <div [hidden]="em.valid || em.pristine" class="alert callout">
+                Email Required
+            </div>
+        </label>
+    </div>
+
+    <div>
+        <label>Password
+            <input type="text" placeholder="Password" id="password" [(ngModel)]="password" name="password" required #pw1="ngModel">
+            <div [hidden]="pw1.valid || pw1.pristine" class="alert callout">
+                Password Required
+            </div>
+        </label>
+    </div>
+
+    <div *ngIf="passwordFail" class="alert callout">
+        Passwords must match
+    </div>
+    <div>
+        <button (click)="login()">Login</button>
+        <button (click)="signup()">Sign Up</button>
+    </div>
+    <div>
+        <p (click)="cancel()" class="simlink">Back to Home</p>
+    </div>
+</form>

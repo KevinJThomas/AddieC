@@ -5,12 +5,24 @@ import {
     ActivatedRouteSnapshot,
     RouterStateSnapshot
 } from '@angular/router';
+import * as firebase from 'firebase';
 
 @Injectable() //Used for DI
 export class UserService implements CanActivate {
     userLoggedIn: boolean = false;
+    loggedInUser: string;
+    authUser: any;
 
-    constructor(private router: Router) { }
+    constructor(private router: Router) {
+        firebase.initializeApp({
+            apiKey: "AIzaSyBnYaUlBo8GEWfw9Z_nBohqcGk-z3fEn-o",
+            authDomain: "addiec-1026c.firebaseapp.com",
+            databaseURL: "https://addiec-1026c.firebaseio.com",
+            projectId: "addiec-1026c",
+            storageBucket: "addiec-1026c.appspot.com",
+            messagingSenderId: "809044298440"
+        })
+     }
 
     canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): boolean {
         let url: string = state.url;
@@ -22,5 +34,39 @@ export class UserService implements CanActivate {
 
         this.router.navigate(['/user/login']);
         return false;
+    }
+
+    register(email: string, password: string) {
+        firebase.auth().createUserWithEmailAndPassword(email, password)
+            .catch(function(error) {
+                alert(`${error.message} Please try again!`); //using alerts for testing, change to something else later
+        });
+    }
+
+    verifyUser() {
+        this.authUser = firebase.auth().currentUser;
+
+        if (this.authUser) {
+            alert(`Welcome ${this.authUser.email}`); //using alerts for testing, change to something else later
+            this.loggedInUser = this.authUser.email;
+            this.userLoggedIn = true;
+            this.router.navigate(['/user']);
+        }
+    }
+
+    login(loginEmail: string, loginPassword: string) {
+        firebase.auth().signInWithEmailAndPassword(loginEmail, loginPassword)
+            .catch(function(error) {
+                alert(`${error.message} Unable to login. Please try again!`) //using alerts for testing, change to something else later
+        });
+    }
+
+    logout() {
+        this.userLoggedIn = false;
+        firebase.auth().signOut().then(function () {
+            alert(`Logged out!`); //using alerts for testing, change to something else later
+        }, function(error) {
+            alert(`${error.message} Unable to logout. Please try again!`) //using alerts for testing, change to something else later
+        });
     }
 }
