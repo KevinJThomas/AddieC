@@ -9,6 +9,7 @@ import { Router } from '@angular/router';
 
 export class UserMenuComponent implements OnInit {
     theUser: string;
+    navOpen: boolean = false;
 
     constructor(private userSVC: UserService, private router: Router) { }
 
@@ -20,4 +21,14 @@ export class UserMenuComponent implements OnInit {
         this.userSVC.logout();
         this.router.navigate(['']);
     }
- }
+
+    openNav() {
+        document.getElementById("mySidenav").style.width = "250px";
+        document.body.style.backgroundColor = "rgba(0,0,0,0.4)";
+    }
+
+    closeNav() {
+        document.getElementById("mySidenav").style.width = "0";
+        document.body.style.backgroundColor = "white";
+    }
+}

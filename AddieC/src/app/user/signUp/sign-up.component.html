@@ -1,4 +1,4 @@
-<h1>Sign Up Page</h1>
+<h1>Sign Up</h1>
 
 <form>
     <div>
@@ -12,7 +12,7 @@
 
     <div>
         <label>Password
-            <input type="text" placeholder="Password" id="password" [(ngModel)]="password" name="password" required #pw1="ngModel">
+            <input type="password" placeholder="Password" id="password" [(ngModel)]="password" name="password" required #pw1="ngModel">
             <div [hidden]="pw1.valid || pw1.pristine" class="alert callout">
                 Password Required
             </div>
@@ -21,7 +21,7 @@
 
     <div>
         <label>Confirm
-            <input type="text" placeholder="Confirm Password" id="confirmPassword" [(ngModel)]="confirmPassword" name="confirmPassword" required #pw2="ngModel">
+            <input type="password" placeholder="Confirm Password" id="confirmPassword" [(ngModel)]="confirmPassword" name="confirmPassword" required #pw2="ngModel">
             <div [hidden]="pw2.valid || pw2.pristine" class="alert callout">
                 Confirm Password
             </div>

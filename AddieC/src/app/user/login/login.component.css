@@ -2,3 +2,7 @@
     color: #0000ff;
     cursor: pointer;
 }
+
+.alert {
+    color: red;
+}

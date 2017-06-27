@@ -45,9 +45,8 @@ export class UserService implements CanActivate {
 
     verifyUser() {
         this.authUser = firebase.auth().currentUser;
-
+        
         if (this.authUser) {
-            alert(`Welcome ${this.authUser.email}`); //using alerts for testing, change to something else later
             this.loggedInUser = this.authUser.email;
             this.userLoggedIn = true;
             this.router.navigate(['/user']);
@@ -64,7 +63,7 @@ export class UserService implements CanActivate {
     logout() {
         this.userLoggedIn = false;
         firebase.auth().signOut().then(function () {
-            alert(`Logged out!`); //using alerts for testing, change to something else later
+
         }, function(error) {
             alert(`${error.message} Unable to logout. Please try again!`) //using alerts for testing, change to something else later
         });
