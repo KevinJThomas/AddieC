@@ -26,3 +26,7 @@ li a:hover {
     float: right;
     padding: 10px;
 }
+
+.pointer {
+    cursor: pointer;
+}

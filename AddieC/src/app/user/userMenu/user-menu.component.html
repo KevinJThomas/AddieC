@@ -1,0 +1,15 @@
+<ul>
+    <li><a [routerLink]="['/']"><img src="http://placekitten.com/g/40/40" alt="CAT IMG"></a></li>
+    <li><a [routerLink]="['/about']">About</a></li>
+    <li style="float:right" class="pointer"><a (click)="openNav()">{{theUser}}</a></li>
+    <li style="float:right" class="pointer"><a (click)="logout()">Logout</a></li>    
+</ul>
+
+<h1>User Menu</h1>
+
+<div id="mySidenav" class="sidenav">
+  <a href="javascript:void(0)" class="closebtn" (click)="closeNav()">&times;</a>
+  <a [routerLink]="['/about']">Contact</a>
+  <a [routerLink]="['/about']">Settings</a>
+  <a (click)="logout()">Logout</a>
+</div>
