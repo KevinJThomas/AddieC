@@ -7,6 +7,9 @@ import { HomeComponent } from './home/home.component';
 import { ErrorComponent } from './error/error.component';
 import { AboutComponent } from './about/about.component';
 import { AppRoutingModule } from './shared/app.routing';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MdButtonModule, MdCheckboxModule } from '@angular/material';
+import 'hammerjs';
 
 import { UserModule } from './user/user.module';
 
@@ -20,10 +23,13 @@ import { UserModule } from './user/user.module';
   ],
   imports: [
     BrowserModule,
+    BrowserAnimationsModule,
+    MdButtonModule,
+    MdCheckboxModule,
     UserModule,
     AppRoutingModule //AppRoutingModule needs to be imported last or routing will not work
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [ AppComponent ]
 })
 export class AppModule { }
