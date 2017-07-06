@@ -11,7 +11,7 @@ export class SignUpComponent {
     email: string;
     password: string;
     confirmPassword: string;
-    passwordFail: boolean = false;
+    passwordFail = false;
 
     constructor(private userSVC: UserService, private router: Router) { }
 

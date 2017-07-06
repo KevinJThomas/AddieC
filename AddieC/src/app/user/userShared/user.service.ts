@@ -7,25 +7,25 @@ import {
 } from '@angular/router';
 import * as firebase from 'firebase';
 
-@Injectable() //Used for DI
+@Injectable() // Used for DI
 export class UserService implements CanActivate {
-    userLoggedIn: boolean = false;
+    userLoggedIn = false;
     loggedInUser: string;
     authUser: any;
 
     constructor(private router: Router) {
         firebase.initializeApp({
-            apiKey: "AIzaSyBnYaUlBo8GEWfw9Z_nBohqcGk-z3fEn-o",
-            authDomain: "addiec-1026c.firebaseapp.com",
-            databaseURL: "https://addiec-1026c.firebaseio.com",
-            projectId: "addiec-1026c",
-            storageBucket: "addiec-1026c.appspot.com",
-            messagingSenderId: "809044298440"
+            apiKey: 'AIzaSyBnYaUlBo8GEWfw9Z_nBohqcGk-z3fEn-o',
+            authDomain: 'addiec-1026c.firebaseapp.com',
+            databaseURL: 'https://addiec-1026c.firebaseio.com',
+            projectId: 'addiec-1026c',
+            storageBucket: 'addiec-1026c.appspot.com',
+            messagingSenderId: '809044298440'
         })
      }
 
     canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): boolean {
-        let url: string = state.url;
+        const url: string = state.url;
         return this.verifyLogin(url);
     }
 
@@ -39,13 +39,13 @@ export class UserService implements CanActivate {
     register(email: string, password: string) {
         firebase.auth().createUserWithEmailAndPassword(email, password)
             .catch(function(error) {
-                alert(`${error.message} Please try again!`); //using alerts for testing, change to something else later
+                alert(`${error.message} Please try again!`); // using alerts for testing, change to something else later
         });
     }
 
     verifyUser() {
         this.authUser = firebase.auth().currentUser;
-        
+
         if (this.authUser) {
             this.loggedInUser = this.authUser.email;
             this.userLoggedIn = true;
@@ -56,7 +56,7 @@ export class UserService implements CanActivate {
     login(loginEmail: string, loginPassword: string) {
         firebase.auth().signInWithEmailAndPassword(loginEmail, loginPassword)
             .catch(function(error) {
-                alert(`${error.message} Unable to login. Please try again!`) //using alerts for testing, change to something else later
+                alert(`${error.message} Unable to login. Please try again!`) // using alerts for testing, change to something else later
         });
     }
 
@@ -65,7 +65,7 @@ export class UserService implements CanActivate {
         firebase.auth().signOut().then(function () {
 
         }, function(error) {
-            alert(`${error.message} Unable to logout. Please try again!`) //using alerts for testing, change to something else later
+            alert(`${error.message} Unable to logout. Please try again!`) // using alerts for testing, change to something else later
         });
     }
 }

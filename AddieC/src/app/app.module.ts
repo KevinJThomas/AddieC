@@ -12,7 +12,7 @@ import {
    MdButtonModule,
    MdCheckboxModule,
    MdMenuModule,
-   MdToolbarModule 
+   MdToolbarModule
   } from '@angular/material';
 
 import 'hammerjs';
@@ -33,9 +33,9 @@ import { UserModule } from './user/user.module';
     MdMenuModule,
     MdToolbarModule,
     MdButtonModule,
-    MdCheckboxModule,    
+    MdCheckboxModule,
     UserModule,
-    AppRoutingModule //AppRoutingModule needs to be imported last or routing will not work
+    AppRoutingModule // AppRoutingModule needs to be imported last or routing will not work
   ],
   providers: [],
   bootstrap: [ AppComponent ]
