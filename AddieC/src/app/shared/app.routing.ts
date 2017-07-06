@@ -11,7 +11,7 @@ import { AboutComponent } from '../about/about.component';
             { path: '' , component: HomeComponent},
             { path: 'about', component: AboutComponent},
             { path: '**' , component: ErrorComponent }
-        ])    
+        ])
     ],
     exports: [
         RouterModule

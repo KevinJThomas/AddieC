@@ -12,7 +12,7 @@ import {
    MdButtonModule,
    MdCheckboxModule,
    MdMenuModule,
-   MdToolbarModule 
+   MdToolbarModule
   } from '@angular/material';
 
 import { UserService } from './userShared/user.service';
@@ -36,7 +36,7 @@ const UserRoutes: Routes = [
         MdMenuModule,
         MdToolbarModule,
         MdButtonModule,
-        MdCheckboxModule, 
+        MdCheckboxModule,
         RouterModule.forChild(UserRoutes)
     ],
     exports: [

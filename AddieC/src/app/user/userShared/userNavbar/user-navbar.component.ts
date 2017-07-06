@@ -9,16 +9,16 @@ import { Router } from '@angular/router';
 })
 
 export class UserNavComponent {
-    userLoggedIn: boolean = false;
+    userLoggedIn = false;
     loggedIn: string;
 
-    constructor(private userSVC: UserService, private router: Router) { 
+    constructor(private userSVC: UserService, private router: Router) {
         this.userLoggedIn = userSVC.userLoggedIn;
 
         if (userSVC.userLoggedIn) {
             this.loggedIn = userSVC.loggedInUser;
         } else {
-            this.loggedIn = "Login";
+            this.loggedIn = 'Login';
         }
     }
 
