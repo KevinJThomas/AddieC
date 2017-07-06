@@ -1,14 +1,14 @@
 import { Component } from '@angular/core';
-import { UserService } from '../user/userShared/user.service';
+import { UserService } from '../user.service';
 import { Router } from '@angular/router';
 
 @Component({
-    selector: 'nav-bar',
-    templateUrl: './navbar.component.html',
-    styleUrls: ['./navbar.component.css']
+    selector: 'user-nav-bar',
+    templateUrl: './user-navbar.component.html',
+    styleUrls: ['./user-navbar.component.css']
 })
 
-export class NavComponent {
+export class UserNavComponent {
     userLoggedIn: boolean = false;
     loggedIn: string;
 
