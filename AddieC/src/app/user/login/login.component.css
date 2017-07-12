@@ -6,3 +6,40 @@
 .alert {
     color: red;
 }
+
+.login-card {
+  width: 400px;
+  margin: 0;
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.login-title {
+    margin: auto;    
+    font: bold;
+}
+
+.submit-button {
+    width: 100%;
+    margin-bottom: 10px;
+    text-align: center;
+    margin-top: 50px;
+}
+
+.register-button {
+    margin-bottom: 10px;
+    text-align: center;
+    float: right;
+}
+
+.input-boxes {
+    width: 100%;
+    padding-top: 10px;
+    margin: auto;
+}
+
+.full-width {
+    width: 100%;
+}
