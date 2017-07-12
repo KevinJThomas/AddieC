@@ -1,32 +1,23 @@
-<h1>Login</h1>
-
 <form>
+    <md-card class="login-card">
+        <md-toolbar>
+            <span class="login-title">User Login</span>
+        </md-toolbar>
+        <md-card-content>
+            <md-input-container class="input-boxes">
+                <input mdInput placeholder="Username" id="email" [(ngModel)]="email" name="email" required #em="ngModel">
+            </md-input-container>      
+            <br>
+            <md-input-container class="input-boxes">
+                <input mdInput type="password" placeholder="Password" id="password" [(ngModel)]="password" name="password" required #pw1="ngModel">          
+            </md-input-container>
+        </md-card-content>
+        <md-card-actions class="test">
+            <button md-button class="register-button" (click)="signup()">Register</button>
+            <button md-raised-button class="submit-button" (click)="login()">Submit</button>
+        </md-card-actions>  
+    </md-card>
     <div>
-        <label>Username
-            <input type="text" placeholder="Email Address" id="email" [(ngModel)]="email" name="email" required #em="ngModel">
-            <div [hidden]="em.valid || em.pristine" class="alert callout">
-                Email Required
-            </div>
-        </label>
-    </div>
-
-    <div>
-        <label>Password
-            <input type="password" placeholder="Password" id="password" [(ngModel)]="password" name="password" required #pw1="ngModel">
-            <div [hidden]="pw1.valid || pw1.pristine" class="alert callout">
-                Password Required
-            </div>
-        </label>
-    </div>
-
-    <div *ngIf="passwordFail" class="alert callout">
-        Passwords must match
-    </div>
-    <div>
-        <button (click)="login()">Login</button>
-        <button (click)="signup()">Sign Up</button>
-    </div>
-    <div>
-        <p (click)="cancel()" class="simlink">Back to Home</p>
+        <p (click)="cancel()" class="simlink">&larr; Home</p>
     </div>
 </form>
