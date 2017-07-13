@@ -24,6 +24,16 @@ export class UserService implements CanActivate {
         })
      }
 
+    getUserId(): string {
+        this.authUser = firebase.auth().currentUser;
+
+        if (this.authUser) {
+            return this.authUser.uid;
+        } else {
+            return "Unknown User"; //TODO: What to do when this happens?
+        }
+    }
+
     canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): boolean {
         const url: string = state.url;
         return this.verifyLogin(url);

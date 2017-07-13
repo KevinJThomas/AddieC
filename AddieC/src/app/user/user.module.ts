@@ -8,6 +8,8 @@ import { UserComponent } from './userComponent/user.component';
 import { UserMenuComponent } from './userMenu/user-menu.component';
 import { LoginComponent } from './login/login.component';
 import { SignUpComponent } from './signUp/sign-up.component';
+import { UserPostsComponent } from './userPosts/user-posts.component';
+import { PostAddComponent } from './postAdd/post-add.component';
 import {
    MdButtonModule,
    MdCheckboxModule,
@@ -18,6 +20,7 @@ import {
   } from '@angular/material';
 
 import { UserService } from './userShared/user.service';
+import { PostService } from './userShared/post.service';
 
 const UserRoutes: Routes = [
     {
@@ -26,6 +29,8 @@ const UserRoutes: Routes = [
         children: [
             { path: 'login', component: LoginComponent },
             { path: 'signup', component: SignUpComponent },
+            { path: 'posts', component: UserPostsComponent, canActivate: [UserService] },
+            { path: 'addPost', component: PostAddComponent, canActivate: [UserService] },
             { path: '', component: UserMenuComponent, canActivate: [UserService] }
         ]
     },
@@ -51,10 +56,13 @@ const UserRoutes: Routes = [
         UserComponent,
         UserMenuComponent,
         LoginComponent,
-        SignUpComponent
+        SignUpComponent,
+        UserPostsComponent,
+        PostAddComponent
     ],
     providers: [
-        UserService
+        UserService,
+        PostService
     ]
 })
 

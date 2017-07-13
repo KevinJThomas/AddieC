@@ -1,0 +1,27 @@
+<form>
+    <md-card class="post-card">
+        <md-toolbar>
+            <span class="post-title">Add a Post</span>
+        </md-toolbar>
+        <md-card-content>
+            <md-input-container class="input-boxes">
+                <input mdInput placeholder="Title" id="title" [(ngModel)]="title" name="title" required #postTitle="ngModel">
+            </md-input-container>      
+            <br>
+            <md-input-container class="input-boxes description-box">
+                <textarea mdInput class="description-box" type="password" placeholder="Description" id="description" [(ngModel)]="description" name="description" 
+                required #postDesc="ngModel"></textarea>
+            </md-input-container>
+            <div class="file-input"> <!-- TODO: Make file input look like angular material (file is not supported in mdInput) -->
+                <input type="file" (change)=fileLoad($event)><br>
+                <img *ngIf="imgSRC" [src]="imgSRC" alt="Image Preview...">
+            </div>
+        </md-card-content>
+        <md-card-actions>
+            <div class="button-row">                
+                <button md-raised-button class="create-button" [disabled]="!postTitle.valid || !postDesc.valid" (click)="createPost()">Create Post</button>
+                <button md-raised-button class="cancel-button" (click)="cancel()">Cancel</button>            
+            </div>
+        </md-card-actions>  
+    </md-card>
+</form>
