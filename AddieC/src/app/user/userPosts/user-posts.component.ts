@@ -39,7 +39,7 @@ export class UserPostsComponent implements OnInit {
         dbRef.once('value')
         .then((snapshot) => {
             const tmp: string[] = snapshot.val();
-            this.posts = Object.keys(tmp).map(key => tmp[key]).filter(item => item.uid == this.userSVC.getUserId());
+            this.posts = Object.keys(tmp).map(key => tmp[key]).filter(item => item.uid === this.userSVC.getUserId());
             console.log(this.userSVC.getUserId());
         });
     }
