@@ -4,14 +4,14 @@ import * as firebase from 'firebase';
 
 @Injectable()
 export class PostService {
-    
+
     createPost(post: Post) {
-        let storageRef = firebase.storage().ref();
+        const storageRef = firebase.storage().ref();
         storageRef.child(`images/${post.imgTitle}`).putString(post.img, 'base64')
             .then((snapshot) => {
-                let url = snapshot.metadata.downloadURLs[0];
-                let dbRef = firebase.database().ref('posts/');
-                let newPost = dbRef.push();
+                const url = snapshot.metadata.downloadURLs[0];
+                const dbRef = firebase.database().ref('posts/');
+                const newPost = dbRef.push();
                 newPost.set ({
                     title: post.title,
                     content: post.content,
@@ -27,7 +27,7 @@ export class PostService {
     }
 
     editPost(update: Post) {
-        let dbRef = firebase.database().ref('posts/').child(update.id)
+        const dbRef = firebase.database().ref('posts/').child(update.id)
             .update({
                 title: update.title,
                 content: update.content
@@ -35,9 +35,9 @@ export class PostService {
     }
 
     deletePost(deletePost: Post) {
-        let dbRef = firebase.database().ref('posts/').child(deletePost.id).remove();
+        const dbRef = firebase.database().ref('posts/').child(deletePost.id).remove();
 
-        let imageRef = firebase.storage().ref().child(`images/${deletePost.imgTitle}`)
+        const imageRef = firebase.storage().ref().child(`images/${deletePost.imgTitle}`)
             .delete()
                 .then(function() {
                 }).catch(function(error) {

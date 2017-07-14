@@ -30,7 +30,7 @@ export class UserService implements CanActivate {
         if (this.authUser) {
             return this.authUser.uid;
         } else {
-            return "Unknown User"; //TODO: What to do when this happens?
+            return 'Unknown User'; // TODO: What to do when this happens?
         }
     }
 

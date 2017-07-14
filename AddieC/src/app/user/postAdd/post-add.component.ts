@@ -20,14 +20,14 @@ export class PostAddComponent {
     constructor(private postSVC: PostService, private userSVC: UserService, private router: Router) {}
 
     fileLoad($event: any) {
-        let myReader: FileReader = new FileReader();
-        let file: File = $event.target.files[0];
+        const myReader: FileReader = new FileReader();
+        const file: File = $event.target.files[0];
         this.imgTitle = file.name;
         myReader.readAsDataURL(file);
 
         myReader.onload = (e: any) => {
             this.imgSRC = e.target.result;
-        }        
+        }
     }
 
     createPost() {
