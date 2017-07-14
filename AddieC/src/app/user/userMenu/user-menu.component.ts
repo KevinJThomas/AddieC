@@ -10,11 +10,16 @@ import { Router } from '@angular/router';
 export class UserMenuComponent implements OnInit {
     theUser: string;
     navOpen = false;
+    addieFaceUrl: string = '../../assets/addie_face.jpg';
 
     constructor(private userSVC: UserService, private router: Router) { }
 
     ngOnInit() {
         this.theUser = this.userSVC.loggedInUser;
+    }
+
+    managePosts() {
+        this.router.navigate(['/user/posts'])
     }
 
     logout() {

@@ -41,7 +41,7 @@
     width: 100%;
 }
 
-.example-button-row {
+.button-row {
   display: flex;
   align-items: center;
   justify-content: space-around;

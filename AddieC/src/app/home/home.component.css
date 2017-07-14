@@ -1,0 +1,23 @@
+.welcome {
+    position: absolute;
+    text-align: center;
+    padding-top: 40px;
+    width: 100%;
+    top: 250px;
+    color: #fff;
+	text-shadow: 0px 1px 0px #999, 0px 2px 0px #888, 0px 3px 0px #777, 0px 4px 0px #666, 0px 5px 0px #555, 0px 6px 0px #444, 0px 7px 0px #333, 0px 8px 7px #001135;
+	font: 80px 'ChunkFiveRegular';
+}
+
+.picture {
+    width: 70%;
+    height: 70%;
+    border-radius: 10px;
+    margin: auto;
+    display: block;
+}
+
+.image {
+    position: relative; 
+    width: 100%;
+}
