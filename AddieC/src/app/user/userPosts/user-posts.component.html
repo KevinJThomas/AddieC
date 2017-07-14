@@ -1,7 +1,30 @@
-<user-nav-bar></user-nav-bar>
+<app-user-nav-bar></app-user-nav-bar>
 
-<h1>POSTS PAGE</h1>
+<button md-raised-button style="margin:20px;" (click)="addPost()">Add Post</button>
 
-<button md-raised-button (click)="addPost()">Add Post</button>
-
-<!-- TODO: Display a list of previous posts -->
+<div *ngFor="let post of posts">
+    <div class="spacer">
+        <!--<img class="mini-img" [src]="post.img">
+        <h4>{{post.title}}</h4>
+        <p>{{post.content | truncate:140}}</p>
+        <div>
+            <button (click)="editPost(post)">Edit</button>
+            <button (click)="deletePost(post)">Delete</button>
+        </div>-->
+        <md-grid-list cols="6" rowHeight="50px">
+            <md-grid-tile [colspan]="1" [rowspan]="2">
+                <img class="mini-img" [src]="post.img">
+            </md-grid-tile>
+            <md-grid-tile [colspan]="4" [rowspan]="1">
+                <h4>{{post.title}}</h4>
+            </md-grid-tile>
+            <md-grid-tile [colspan]="4" [rowspan]="1">
+                <p>{{post.content | truncate:140}}</p>
+            </md-grid-tile>
+            <md-grid-tile [colspan]="6" [rowspan]="1">
+                <button md-raised-button (click)="editPost(post)">Edit</button>
+                <button md-raised-button (click)="deletePost(post)">Delete</button>
+            </md-grid-tile>
+        </md-grid-list>
+    </div>
+</div>

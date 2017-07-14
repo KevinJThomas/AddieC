@@ -3,7 +3,7 @@ import { UserService } from '../user.service';
 import { Router } from '@angular/router';
 
 @Component({
-    selector: 'user-nav-bar',
+    selector: 'app-user-nav-bar',
     templateUrl: './user-navbar.component.html',
     styleUrls: ['./user-navbar.component.css']
 })
