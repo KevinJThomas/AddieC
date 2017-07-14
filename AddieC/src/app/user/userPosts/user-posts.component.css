@@ -1,0 +1,15 @@
+.simlink:hover {
+    color: #0000ff;
+    cursor: pointer;
+}
+
+.mini-img {
+    height: 125px;
+    width: 125px;
+}
+
+.spacer {
+    padding-top: 20px;
+    padding-bottom: 20px;
+    border-top: solid 1px #000000;
+}
