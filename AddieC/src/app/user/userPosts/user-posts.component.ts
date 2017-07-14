@@ -40,12 +40,7 @@ export class UserPostsComponent implements OnInit {
         .then((snapshot) => {
             const tmp: string[] = snapshot.val();
             this.posts = Object.keys(tmp).map(key => tmp[key]).filter(item => item.uid === this.userSVC.getUserId());
-            console.log(this.userSVC.getUserId());
         });
-    }
-
-    editPost(thePost: Post) {
-        // TODO: Edit Post Page
     }
 
     deletePost(single: Post) {

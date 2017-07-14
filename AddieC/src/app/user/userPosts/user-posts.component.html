@@ -22,7 +22,7 @@
                 <p>{{post.content | truncate:140}}</p>
             </md-grid-tile>
             <md-grid-tile [colspan]="6" [rowspan]="1">
-                <button md-raised-button (click)="editPost(post)">Edit</button>
+                <button md-raised-button [routerLink]="['/user/editPost', post.id]">Edit</button>
                 <button md-raised-button (click)="deletePost(post)">Delete</button>
             </md-grid-tile>
         </md-grid-list>
