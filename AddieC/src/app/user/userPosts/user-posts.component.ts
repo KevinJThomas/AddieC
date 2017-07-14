@@ -17,7 +17,7 @@ export class UserPostsComponent implements OnInit {
         private router: Router,
         private postSVC: PostService
     ) {}
-    
+
     addPost() {
         this.router.navigate(['/user/addPost']);
     }
