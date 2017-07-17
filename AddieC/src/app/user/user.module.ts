@@ -19,6 +19,7 @@ import { LoginComponent } from './login/login.component';
 import { SignUpComponent } from './signUp/sign-up.component';
 import { UserPostsComponent } from './userPosts/user-posts.component';
 import { PostAddComponent } from './postAdd/post-add.component';
+import { PostEditComponent } from './postEdit/post-edit.component';
 
 import { TruncatePipe } from './userShared/trunc.pipe';
 
@@ -34,6 +35,7 @@ const UserRoutes: Routes = [
             { path: 'signup', component: SignUpComponent },
             { path: 'posts', component: UserPostsComponent, canActivate: [UserService] },
             { path: 'addPost', component: PostAddComponent, canActivate: [UserService] },
+            { path: 'editPost/:id', component: PostEditComponent, canActivate: [UserService] },
             { path: '', component: UserMenuComponent, canActivate: [UserService] }
         ]
     },
@@ -64,6 +66,7 @@ const UserRoutes: Routes = [
         SignUpComponent,
         UserPostsComponent,
         PostAddComponent,
+        PostEditComponent,
         TruncatePipe
     ],
     providers: [
