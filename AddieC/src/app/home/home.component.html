@@ -4,3 +4,15 @@
     <img class="picture" [src]='addieUrl'>
     <h1 class="welcome">Welcome!</h1>
 </div>
+
+<div class="spacing">
+    <div *ngFor="let post of posts">
+        <div class="card-spacing">
+            <img class="display-image" [src]="post.img">
+            <div>
+                <h4 class="list-title" (click)="choosePost(post)">{{post.title}}</h4>
+                <p>{{post.content | truncate:140}}</p>
+            </div>
+        </div>
+    </div>
+</div>
