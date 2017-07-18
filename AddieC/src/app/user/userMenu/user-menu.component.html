@@ -1,4 +1,10 @@
 <app-user-nav-bar></app-user-nav-bar>
 
-<img class="picture" [src]='addieFaceUrl'>
-<button md-button style="width:100%;" (click)="managePosts()">My Posts</button> <!-- TODO: Why is image flipped? -->
+<img class="picture" [src]='profilePicUrl'> <!-- TODO: Why is image flipped? -->
+<div>
+    <button class="user-button" md-button (click)="managePosts()">My Posts</button>
+</div>
+
+<div>
+    <button class="user-button" md-button (click)="managePosts()">Settings</button>
+</div>
