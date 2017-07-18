@@ -1,0 +1,19 @@
+<div class="text-left">
+    <a class="back-link" [routerLink]="['']">
+        <h4>Back to Home</h4>
+    </a>
+</div>
+
+<div class="row-spacing">
+    <img [src]="singlePost?.img">
+</div>
+
+<div class="post-title">
+    <div class="text-center">
+        <h2>{{singlePost?.title}}</h2>
+    </div>
+</div>
+
+<div class="text-center">
+    <p>{{singlePost?.content}}</p>
+</div>
