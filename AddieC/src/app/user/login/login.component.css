@@ -28,21 +28,36 @@
 
 .submit-button {
     width: 100%;
-    margin-bottom: 10px;
     text-align: center;
     margin-top: 50px;
 }
 
 .register-button {
-    margin-bottom: 10px;
     text-align: center;
     float: right;
+    position: absolute;
+    margin: 0;
+    top: 59%;
+    left: 59.5%;
+    transform: translate(-50%, -50%);
+    color: #0000ff;
+}
+
+.home-button {
+    text-align: center;
+    float: right;
+    position: absolute;
+    margin: 0;
+    top: 59%;
+    left: 41.5%;
+    transform: translate(-50%, -50%);
+    color: #0000ff;
 }
 
 .input-boxes {
     width: 100%;
     padding-top: 10px;
-    margin: auto;
+    margin: auto;    
 }
 
 .full-width {
