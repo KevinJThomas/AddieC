@@ -14,16 +14,7 @@ export class UserService implements CanActivate {
     loggedInUser: string;
     authUser: any;
 
-    constructor(private router: Router) {
-        firebase.initializeApp({
-            apiKey: 'AIzaSyBnYaUlBo8GEWfw9Z_nBohqcGk-z3fEn-o',
-            authDomain: 'addiec-1026c.firebaseapp.com',
-            databaseURL: 'https://addiec-1026c.firebaseio.com',
-            projectId: 'addiec-1026c',
-            storageBucket: 'addiec-1026c.appspot.com',
-            messagingSenderId: '809044298440'
-        })
-     }
+    constructor(private router: Router) {}
 
     getUserId(): Observable<string[]> {
         this.authUser = firebase.auth().currentUser;
