@@ -10,7 +10,7 @@ import { Router } from '@angular/router';
 export class UserMenuComponent implements OnInit {
     theUser: string;
     navOpen = false;
-    addieFaceUrl = '../../assets/addie_face.jpg';
+    profilePicUrl = '../../assets/example_profile_picture.jpg';
 
     constructor(private userSVC: UserService, private router: Router) { }
 
