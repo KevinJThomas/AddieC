@@ -1,6 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { AppComponent } from './start/app.component';
+import * as firebase from 'firebase';
 
 import { NavComponent } from './shared/navbar.component';
 import { HomeComponent } from './home/home.component';
@@ -12,7 +13,8 @@ import {
    MdButtonModule,
    MdCheckboxModule,
    MdMenuModule,
-   MdToolbarModule
+   MdToolbarModule,
+   MdGridListModule
   } from '@angular/material';
 
 import 'hammerjs';
@@ -34,10 +36,23 @@ import { UserModule } from './user/user.module';
     MdToolbarModule,
     MdButtonModule,
     MdCheckboxModule,
+    MdGridListModule,
     UserModule,
     AppRoutingModule // AppRoutingModule needs to be imported last or routing will not work
   ],
   providers: [],
   bootstrap: [ AppComponent ]
 })
-export class AppModule { }
+
+export class AppModule {
+  constructor() {
+        firebase.initializeApp({
+            apiKey: 'AIzaSyBnYaUlBo8GEWfw9Z_nBohqcGk-z3fEn-o',
+            authDomain: 'addiec-1026c.firebaseapp.com',
+            databaseURL: 'https://addiec-1026c.firebaseio.com',
+            projectId: 'addiec-1026c',
+            storageBucket: 'addiec-1026c.appspot.com',
+            messagingSenderId: '809044298440'
+        })
+     }
+ }

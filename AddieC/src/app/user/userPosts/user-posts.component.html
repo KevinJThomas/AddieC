@@ -4,13 +4,6 @@
 
 <div *ngFor="let post of posts">
     <div class="spacer">
-        <!--<img class="mini-img" [src]="post.img">
-        <h4>{{post.title}}</h4>
-        <p>{{post.content | truncate:140}}</p>
-        <div>
-            <button (click)="editPost(post)">Edit</button>
-            <button (click)="deletePost(post)">Delete</button>
-        </div>-->
         <md-grid-list cols="6" rowHeight="50px">
             <md-grid-tile [colspan]="1" [rowspan]="2">
                 <img class="mini-img" [src]="post.img">

@@ -30,8 +30,4 @@ export class HomeComponent implements OnInit {
     choosePost(post: Post) {
         this.router.navigate(['/post', post.id]);
     }
-
-    getUser(id: number) {
-        
-    }
 }
