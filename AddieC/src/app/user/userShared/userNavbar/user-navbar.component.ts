@@ -24,6 +24,6 @@ export class UserNavComponent {
 
     logout() {
         this.userSVC.logout();
-        location.reload();
+        this.router.navigate(['']);
     }
 }

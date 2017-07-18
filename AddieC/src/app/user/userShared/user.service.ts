@@ -6,6 +6,7 @@ import {
     RouterStateSnapshot
 } from '@angular/router';
 import * as firebase from 'firebase';
+import { Observable } from 'rxjs/Observable';
 
 @Injectable() // Used for DI
 export class UserService implements CanActivate {
@@ -24,13 +25,13 @@ export class UserService implements CanActivate {
         })
      }
 
-    getUserId(): string {
+    getUserId(): Observable<string[]> {
         this.authUser = firebase.auth().currentUser;
 
         if (this.authUser) {
             return this.authUser.uid;
         } else {
-            return 'Unknown User'; // TODO: What to do when this happens?
+            return Array['Unknown User']; // TODO: What to do when this happens?
         }
     }
 
