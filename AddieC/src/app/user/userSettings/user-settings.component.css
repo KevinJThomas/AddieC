@@ -1,0 +1,24 @@
+.tab-content {
+    margin-top: 20px;
+}
+
+md-tab-group {
+    width: 480px;
+    margin: auto;
+    display: block;
+    margin-top: 150px;
+}
+
+.example-radio-group {
+  display: inline-flex;
+  flex-direction: column;
+  margin-left: 15px;
+}
+
+.example-radio-button {
+  margin: 5px;
+}
+
+md-checkbox {
+    margin: 15px;
+}

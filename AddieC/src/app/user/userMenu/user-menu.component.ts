@@ -22,6 +22,10 @@ export class UserMenuComponent implements OnInit {
         this.router.navigate(['/user/posts'])
     }
 
+    settings() {
+        this.router.navigate(['/user/settings'])
+    }
+
     logout() {
         this.userSVC.logout();
         this.router.navigate(['']);

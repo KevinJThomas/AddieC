@@ -9,7 +9,9 @@ import {
    MdToolbarModule,
    MdCardModule,
    MdInputModule,
-   MdGridListModule
+   MdGridListModule,
+   MdTabsModule,
+   MdRadioModule
   } from '@angular/material';
 
 import { UserNavComponent } from './userShared/userNavbar/user-navbar.component';
@@ -20,6 +22,7 @@ import { SignUpComponent } from './signUp/sign-up.component';
 import { UserPostsComponent } from './userPosts/user-posts.component';
 import { PostAddComponent } from './postAdd/post-add.component';
 import { PostEditComponent } from './postEdit/post-edit.component';
+import { UserSettingsComponent } from './userSettings/user-settings.component';
 
 import { TruncatePipe } from './userShared/trunc.pipe';
 
@@ -33,6 +36,7 @@ const UserRoutes: Routes = [
         children: [
             { path: 'login', component: LoginComponent },
             { path: 'signup', component: SignUpComponent },
+            { path: 'settings', component: UserSettingsComponent, canActivate: [UserService] },
             { path: 'posts', component: UserPostsComponent, canActivate: [UserService] },
             { path: 'addPost', component: PostAddComponent, canActivate: [UserService] },
             { path: 'editPost/:id', component: PostEditComponent, canActivate: [UserService] },
@@ -52,6 +56,8 @@ const UserRoutes: Routes = [
         MdCardModule,
         MdInputModule,
         MdGridListModule,
+        MdTabsModule,
+        MdRadioModule,
         RouterModule.forChild(UserRoutes)
     ],
     exports: [
@@ -67,6 +73,7 @@ const UserRoutes: Routes = [
         UserPostsComponent,
         PostAddComponent,
         PostEditComponent,
+        UserSettingsComponent,
         TruncatePipe
     ],
     providers: [
