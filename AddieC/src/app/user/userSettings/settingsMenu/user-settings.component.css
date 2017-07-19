@@ -1,0 +1,42 @@
+.tab-content {
+    margin-top: 20px;
+}
+
+md-tab-group {
+    width: 480px;
+    margin: auto;
+    display: block;
+    margin-top: 150px;
+}
+
+.example-radio-group {
+  display: inline-flex;
+  flex-direction: column;
+  margin-left: 15px;
+}
+
+.example-radio-button {
+  margin: 5px;
+}
+
+md-checkbox {
+    margin: 15px;
+}
+
+.checkbox-space {
+    margin-top: 35px;
+}
+
+.security-button {
+    width: 40%;
+    margin-top: 10px;
+}
+
+#abuse-button {
+    float: right;
+    color: #0000ff;
+}
+
+.blocked-users:hover {
+    cursor: pointer;
+}
