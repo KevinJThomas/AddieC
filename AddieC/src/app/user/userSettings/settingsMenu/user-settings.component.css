@@ -22,3 +22,21 @@ md-tab-group {
 md-checkbox {
     margin: 15px;
 }
+
+.checkbox-space {
+    margin-top: 35px;
+}
+
+.security-button {
+    width: 40%;
+    margin-top: 10px;
+}
+
+#abuse-button {
+    float: right;
+    color: #0000ff;
+}
+
+.blocked-users:hover {
+    cursor: pointer;
+}

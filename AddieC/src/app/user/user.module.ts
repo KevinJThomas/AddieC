@@ -22,7 +22,12 @@ import { SignUpComponent } from './signUp/sign-up.component';
 import { UserPostsComponent } from './userPosts/user-posts.component';
 import { PostAddComponent } from './postAdd/post-add.component';
 import { PostEditComponent } from './postEdit/post-edit.component';
-import { UserSettingsComponent } from './userSettings/user-settings.component';
+import { UserSettingsComponent } from './userSettings/settingsMenu/user-settings.component';
+import { BlockedUsersComponent } from './userSettings/blockedUsers/blocked-users.component';
+import { ResetPasswordComponent } from './userSettings/resetPassword/reset-password.component';
+import { SecurityQuestionComponent } from './userSettings/securityQuestion/security-question.component';
+import { ReportAbuseComponent } from './userSettings/reportAbuse/report-abuse.component';
+import { ContactsComponent } from './contacts/contacts.component';
 
 import { TruncatePipe } from './userShared/trunc.pipe';
 
@@ -37,9 +42,14 @@ const UserRoutes: Routes = [
             { path: 'login', component: LoginComponent },
             { path: 'signup', component: SignUpComponent },
             { path: 'settings', component: UserSettingsComponent, canActivate: [UserService] },
+            { path: 'settings/blockedUsers', component: BlockedUsersComponent, canActivate: [UserService] },
+            { path: 'settings/resetPassword', component: ResetPasswordComponent, canActivate: [UserService] },
+            { path: 'settings/securityQuestion', component: SecurityQuestionComponent, canActivate: [UserService] },
+            { path: 'settings/reportAbuse', component: ReportAbuseComponent, canActivate: [UserService] },
             { path: 'posts', component: UserPostsComponent, canActivate: [UserService] },
             { path: 'addPost', component: PostAddComponent, canActivate: [UserService] },
             { path: 'editPost/:id', component: PostEditComponent, canActivate: [UserService] },
+            { path: 'contacts', component: ContactsComponent, canActivate: [UserService] },
             { path: '', component: UserMenuComponent, canActivate: [UserService] }
         ]
     },
@@ -74,6 +84,11 @@ const UserRoutes: Routes = [
         PostAddComponent,
         PostEditComponent,
         UserSettingsComponent,
+        BlockedUsersComponent,
+        ResetPasswordComponent,
+        SecurityQuestionComponent,
+        ReportAbuseComponent,
+        ContactsComponent,
         TruncatePipe
     ],
     providers: [

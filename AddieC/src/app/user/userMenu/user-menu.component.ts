@@ -30,4 +30,8 @@ export class UserMenuComponent implements OnInit {
         this.userSVC.logout();
         this.router.navigate(['']);
     }
+
+    contacts() {
+        this.router.navigate(['/user/contacts']);
+    }
 }
