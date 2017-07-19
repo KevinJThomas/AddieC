@@ -8,6 +8,8 @@ import {
 import * as firebase from 'firebase';
 import { Observable } from 'rxjs/Observable';
 
+import { User } from './user';
+
 @Injectable() // Used for DI
 export class UserService implements CanActivate {
     userLoggedIn = false;
@@ -38,11 +40,30 @@ export class UserService implements CanActivate {
         return false;
     }
 
-    register(email: string, password: string) {
+    register(email: string, password: string) { // TODO: using an observable may fix login button issue
         firebase.auth().createUserWithEmailAndPassword(email, password)
             .catch(function(error) {
                 alert(`${error.message} Please try again!`); // using alerts for testing, change to something else later
         });
+
+        let dbRef = firebase.database().ref('users/');
+        this.authUser = firebase.auth().currentUser;
+
+        if (this.authUser) {
+            const newUser = dbRef.push();
+            newUser.set ({
+                email: this.authUser.email,
+                uid: this.authUser.uid,
+                nickname: '',
+                emailNotifications: true,
+                securityQuestion: '',
+                securityQuestionAnswer: '',
+                receiveNewsletters: false,
+                loginAlerts: false,
+                privacy: 'Public',
+                receiveFriendRequests: true,
+            });
+        }
     }
 
     verifyUser() {

@@ -1,0 +1,39 @@
+.post-card {
+  width: 400px;
+  margin: 0;
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.post-title {
+    margin: auto;    
+    font: bold;
+}
+
+.cancel-button {
+    width: 50%;
+    text-align: center;
+}
+
+.submit-button {
+    width: 50%;
+    text-align: center;
+}
+
+.input-boxes {
+    width: 100%;
+    padding-top: 10px;
+    margin: auto;
+}
+
+.message-box {
+    height: 200px;
+}
+
+.button-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}

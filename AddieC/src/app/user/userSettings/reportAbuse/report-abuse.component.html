@@ -1,2 +1,19 @@
-<app-user-nav-bar></app-user-nav-bar>
-<h1>Report Abuse Page</h1>
+<form>
+    <md-card class="post-card">
+        <md-toolbar>
+            <span class="post-title">Report Abuse</span>
+        </md-toolbar>
+        <md-card-content>
+            <md-input-container class="input-boxes message-box">
+                <textarea mdInput class="message-box" placeholder="Message" id="message" [(ngModel)]="message" name="message" 
+                required #msg="ngModel"></textarea>
+            </md-input-container>
+        </md-card-content>
+        <md-card-actions>
+            <div class="button-row">                
+                <button md-raised-button class="submit-button" [disabled]="!msg.valid" (click)="submit()">Submit</button>
+                <button md-raised-button class="cancel-button" (click)="cancel()">Cancel</button>            
+            </div>
+        </md-card-actions>  
+    </md-card>
+</form>

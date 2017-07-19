@@ -31,7 +31,6 @@ export class PostEditComponent implements OnInit, OnDestroy {
             const tmp: string[] = snapshot.val();
             let tmpPost: Post[];
             tmpPost = Object.keys(tmp).map(key => tmp[key]).filter(item => item.id === this.id);
-            console.log(tmpPost);
             this.thePost = tmpPost[0];
             this.title = this.thePost.title;
             this.description = this.thePost.content;

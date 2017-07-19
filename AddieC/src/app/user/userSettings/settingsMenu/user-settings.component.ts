@@ -1,14 +1,22 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+
+import { User } from '../../userShared/user';
+import { UserService } from '../../userShared/user.service';
+
+import * as Rx from "rxjs/Rx";
+import * as firebase from 'firebase';
 
 @Component({
     templateUrl: './user-settings.component.html',
     styleUrls: ['./user-settings.component.css']
 })
-export class UserSettingsComponent {
+export class UserSettingsComponent implements OnInit {
+    theUser: any;
     privacySetting: string;
     checked = true;
-    nickname = "Adds"; // This will be a value in the userDB, it's hardcoded temporarily
+    nickname: string;
+    isDataAvailable = false;
     privacyOptions = [
         'Public',
         'Friends Only',
@@ -19,7 +27,21 @@ export class UserSettingsComponent {
         'Flower',
     ]
 
-    constructor(private router: Router) {}
+    constructor(private router: Router, private userSVC: UserService) {}
+
+    ngOnInit() {
+        this.getUser();
+    }
+
+    getUser() {
+        const dbRef = firebase.database().ref('users/');
+        dbRef.once('value')
+        .then((snapshot) => {
+            const tmp: string[] = snapshot.val();
+            this.theUser = Object.keys(tmp).map(key => tmp[key]).filter(item => item.uid === this.userSVC.getUserId())[0];
+        }).then(() =>        
+        this.isDataAvailable = true);
+    }
 
     blockedUsers() {
         this.router.navigate(['/user/settings/blockedUsers']);
