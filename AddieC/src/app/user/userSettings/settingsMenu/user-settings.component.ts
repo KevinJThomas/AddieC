@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
-import { User } from '../../userShared/user';
 import { UserService } from '../../userShared/user.service';
 
 import * as Rx from "rxjs/Rx";
@@ -13,19 +12,13 @@ import * as firebase from 'firebase';
 })
 export class UserSettingsComponent implements OnInit {
     theUser: any;
-    privacySetting: string;
-    checked = true;
-    nickname: string;
+    blockedUserList: string[] = [];
     isDataAvailable = false;
     privacyOptions = [
         'Public',
         'Friends Only',
         'Private',
     ];
-    myBlockedUsers = [
-        'Bubbles',
-        'Flower',
-    ]
 
     constructor(private router: Router, private userSVC: UserService) {}
 
@@ -33,13 +26,25 @@ export class UserSettingsComponent implements OnInit {
         this.getUser();
     }
 
+    // TODO: Move to service as observable
     getUser() {
         const dbRef = firebase.database().ref('users/');
         dbRef.once('value')
         .then((snapshot) => {
             const tmp: string[] = snapshot.val();
             this.theUser = Object.keys(tmp).map(key => tmp[key]).filter(item => item.uid === this.userSVC.getUserId())[0];
-        }).then(() =>        
+            if (this.theUser.blockedUsers) {
+                for (let uid of this.theUser.blockedUsers) {
+                    dbRef.once('value')
+                    .then((snapshot) => {
+                        const tmp: string[] = snapshot.val();
+                        this.blockedUserList.push(Object.keys(tmp).map(key => tmp[key]).filter(item => item.uid === uid)[0].email);
+                    });
+                }
+            } else {
+                this.blockedUserList = ['None'];
+            }
+        }).then(() =>
         this.isDataAvailable = true);
     }
 

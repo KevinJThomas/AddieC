@@ -30,7 +30,7 @@
         <div>
           <h4 (click)="blockedUsers()" class="blocked-users">Blocked users:</h4>
         </div>
-        <div *ngFor="let user of theUser.blockedUsers">
+        <div *ngFor="let user of blockedUserList">
           {{user}}
         </div>
         <button md-button class="security-button" id="abuse-button" (click)="reportAbuse()">Report Abuse</button>

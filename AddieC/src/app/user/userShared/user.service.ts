@@ -52,6 +52,7 @@ export class UserService implements CanActivate {
         if (this.authUser) {
             const newUser = dbRef.push();
             newUser.set ({
+                id: newUser.key,
                 email: this.authUser.email,
                 uid: this.authUser.uid,
                 nickname: '',
@@ -60,7 +61,7 @@ export class UserService implements CanActivate {
                 securityQuestionAnswer: '',
                 receiveNewsletters: false,
                 loginAlerts: false,
-                privacy: 'Public',
+                privacy: 'Friends Only',
                 receiveFriendRequests: true,
             });
         }
@@ -90,5 +91,16 @@ export class UserService implements CanActivate {
         }, function(error) {
             alert(`${error.message} Unable to logout. Please try again!`) // using alerts for testing, change to something else later
         });
+    }
+
+    unblock(currentUser: any, userIndex: string) {
+        let dbRef = firebase.database().ref('users/').child(currentUser.id).child('blockedUsers');
+        dbRef.orderByValue().equalTo(userIndex).on('child_added', function(snapshot) {
+            snapshot.ref.remove();
+        });
+    }
+
+    block() {
+        // TODO: block people
     }
 }

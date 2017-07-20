@@ -1,2 +1,19 @@
-<app-user-nav-bar></app-user-nav-bar>
-<h1>Blocked Users Page</h1>
+<div *ngIf="isDataAvailable">
+    <md-card class="blocked-card">
+        <md-card-content>
+            <md-list>
+                <h3 md-subheader>Blocked Users</h3>
+                <md-list-item *ngFor="let user of blockedUserList">
+                    <button md-button *ngIf="!blockedUsersEmpty" (click)="unblock(user)">Unblock</button>
+                    <h4 md-line>{{user}}</h4>
+                </md-list-item>
+            </md-list>
+        </md-card-content>
+        <md-card-actions>
+            <div class="button-row">
+                <button md-raised-button class="blocked-button" (click)="add()">Add</button>
+                <button md-raised-button class="blocked-button" (click)="back()">Back</button>
+            </div>
+        </md-card-actions>
+    </md-card>
+</div>

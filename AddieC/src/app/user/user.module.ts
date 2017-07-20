@@ -11,7 +11,9 @@ import {
    MdInputModule,
    MdGridListModule,
    MdTabsModule,
-   MdRadioModule
+   MdRadioModule,
+   MdListModule,
+   MdDialogModule
   } from '@angular/material';
 
 import { UserNavComponent } from './userShared/userNavbar/user-navbar.component';
@@ -24,6 +26,7 @@ import { PostAddComponent } from './postAdd/post-add.component';
 import { PostEditComponent } from './postEdit/post-edit.component';
 import { UserSettingsComponent } from './userSettings/settingsMenu/user-settings.component';
 import { BlockedUsersComponent } from './userSettings/blockedUsers/blocked-users.component';
+import { BlockedUsersComponentDialog } from './userSettings/blockedUsers/blocked-users.component';
 import { ResetPasswordComponent } from './userSettings/resetPassword/reset-password.component';
 import { SecurityQuestionComponent } from './userSettings/securityQuestion/security-question.component';
 import { ReportAbuseComponent } from './userSettings/reportAbuse/report-abuse.component';
@@ -68,6 +71,8 @@ const UserRoutes: Routes = [
         MdGridListModule,
         MdTabsModule,
         MdRadioModule,
+        MdListModule,
+        MdDialogModule,
         RouterModule.forChild(UserRoutes)
     ],
     exports: [
@@ -89,11 +94,15 @@ const UserRoutes: Routes = [
         SecurityQuestionComponent,
         ReportAbuseComponent,
         ContactsComponent,
+        BlockedUsersComponentDialog,        
         TruncatePipe
     ],
     providers: [
         UserService,
         PostService
+    ],
+    entryComponents: [
+        BlockedUsersComponentDialog
     ]
 })
 
