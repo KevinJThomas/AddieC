@@ -1,6 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Inject } from '@angular/core';
 import { Router } from '@angular/router';
-import { MdDialog, MdDialogRef } from '@angular/material';
+import { MdDialog, MdDialogRef, MD_DIALOG_DATA } from '@angular/material';
 
 import { UserService } from '../../userShared/user.service';
 
@@ -77,9 +77,6 @@ export class BlockedUsersComponent implements OnInit {
     styleUrls: ['./blockedUsersDialog/blocked-users-dialog.component.css']
 })
 export class BlockedUsersComponentDialog {
-    constructor(private dialogRef: MdDialogRef<BlockedUsersComponentDialog>) {}
 
-    blockUser() {
-        //TODO: inject data to communicate between components?
-    }
+    constructor(private dialogRef: MdDialogRef<BlockedUsersComponentDialog>, @Inject(MD_DIALOG_DATA) public data: any) {}
 }

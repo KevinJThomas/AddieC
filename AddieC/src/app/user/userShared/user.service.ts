@@ -57,7 +57,7 @@ export class UserService implements CanActivate {
                 uid: this.authUser.uid,
                 nickname: '',
                 emailNotifications: true,
-                securityQuestion: '',
+                securityQuestionIndex: -1,
                 securityQuestionAnswer: '',
                 receiveNewsletters: false,
                 loginAlerts: false,
@@ -100,7 +100,28 @@ export class UserService implements CanActivate {
         });
     }
 
-    block() {
-        // TODO: block people
+    passwordResetEmail() {
+        firebase.auth().sendPasswordResetEmail(this.loggedInUser);
+    }
+
+    // Implement button to click when looking at someone else's profile page. This method is untested, but it should be pretty close
+    //
+    // block(currentUser: any, userToBlock: string) {
+    //     const dbRef = firebase.database().ref('users/').child(currentUser.id).child('blockedUsers/');
+    //     const blockedUser = dbRef.push();
+    //             blockedUser.set ({
+    //                 value: userToBlock
+    //             }).catch((error) => {
+    //                 console.log(error.message);
+    //             });
+    // }
+
+    updateSecurityQuestion(user: any, index: number, answer: string) {
+        firebase.database().ref('users/').child(user.id)
+            .update({
+                securityQuestionIndex: index,
+                securityQuestionAnswer: answer
+            });
+
     }
 }

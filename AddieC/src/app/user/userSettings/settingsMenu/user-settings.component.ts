@@ -57,7 +57,10 @@ export class UserSettingsComponent implements OnInit {
     }
 
     resetPassword() {
-        this.router.navigate(['/user/settings/resetPassword']);
+        const verify = confirm(`Send a password reset email to ` + this.userSVC.loggedInUser + `?`)
+        if (verify === true) {
+            this.userSVC.passwordResetEmail();
+        }
     }
 
     reportAbuse() {

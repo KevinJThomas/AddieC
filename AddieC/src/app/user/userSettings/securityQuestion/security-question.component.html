@@ -1,2 +1,20 @@
-<app-user-nav-bar></app-user-nav-bar>
-<h1>Security Question Page</h1>
+<div *ngIf="isDataAvailable">
+        <md-card class="security-card">
+            <md-card-content>
+                <md-select placeholder="Security Question" class="question-box" [(ngModel)]="index">
+                    <md-option *ngFor="let ques of questions" [value]="ques.value">
+                        {{ques.question}}
+                    </md-option>
+                </md-select>
+                <md-input-container class="input-boxes">
+                    <input mdInput placeholder="Answer" id="answer" [(ngModel)]="answer" name="answer" required #ans="ngModel">          
+                </md-input-container>
+            </md-card-content>
+            <md-card-actions>
+                <div class="button-row">                
+                    <button md-raised-button class="security-button" (click)="apply()">Apply</button>
+                    <button md-raised-button class="security-button" (click)="cancel()">Cancel</button>            
+                </div>
+            </md-card-actions>  
+        </md-card>
+</div>
