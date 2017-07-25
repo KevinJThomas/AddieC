@@ -32,6 +32,7 @@ import { BlockedUsersComponentDialog } from './userSettings/blockedUsers/blocked
 import { SecurityQuestionComponent } from './userSettings/securityQuestion/security-question.component';
 import { ReportAbuseComponent } from './userSettings/reportAbuse/report-abuse.component';
 import { ContactsComponent } from './contacts/contacts.component';
+import { UserAboutComponent } from './userAbout/user-about.component';
 
 import { TruncatePipe } from './userShared/trunc.pipe';
 
@@ -53,6 +54,7 @@ const UserRoutes: Routes = [
             { path: 'addPost', component: PostAddComponent, canActivate: [UserService] },
             { path: 'editPost/:id', component: PostEditComponent, canActivate: [UserService] },
             { path: 'contacts', component: ContactsComponent, canActivate: [UserService] },
+            { path: 'about', component: UserAboutComponent, canActivate: [UserService] },
             { path: '', component: UserMenuComponent, canActivate: [UserService] }
         ]
     },
@@ -95,6 +97,7 @@ const UserRoutes: Routes = [
         SecurityQuestionComponent,
         ReportAbuseComponent,
         ContactsComponent,
+        UserAboutComponent,
         BlockedUsersComponentDialog,        
         TruncatePipe
     ],

@@ -17,3 +17,10 @@
 .menu-font {
   font-size: 90%;
 }
+
+.center-icon {
+  fill: currentColor;
+  vertical-align: middle;
+  display: inline-block;
+  line-height: 1;
+}
