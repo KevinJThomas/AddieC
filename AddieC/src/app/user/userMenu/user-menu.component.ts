@@ -34,4 +34,8 @@ export class UserMenuComponent implements OnInit {
     contacts() {
         this.router.navigate(['/user/contacts']);
     }
+
+    about() {
+        this.router.navigate(['/user/about']);
+    }
 }

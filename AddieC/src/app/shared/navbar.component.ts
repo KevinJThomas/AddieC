@@ -10,15 +10,15 @@ import { Router } from '@angular/router';
 
 export class NavComponent {
     userLoggedIn = false;
-    loggedIn: string;
+    loggedInUser: string;
 
     constructor(private userSVC: UserService, private router: Router) {
         this.userLoggedIn = userSVC.userLoggedIn;
 
         if (userSVC.userLoggedIn) {
-            this.loggedIn = userSVC.loggedInUser;
+            this.loggedInUser = userSVC.loggedInUser;
         } else {
-            this.loggedIn = 'Login';
+            this.loggedInUser = '404'; // Handle this
         }
     }
 

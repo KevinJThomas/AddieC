@@ -2,6 +2,14 @@
     <a [routerLink]="['/']"><img style="padding-top:10px;padding-right:5px" src="http://placekitten.com/g/45/45" alt="CAT IMG"></a>
     <button md-button [routerLink]="['/about']">About</button>
     <span class="spacer"></span>
-    <button md-button [routerLink]="['/user']">{{loggedIn}}</button>
-    <button md-button [hidden]="!userLoggedIn" (click)="logout()">Logout</button>    
+    <button md-button [hidden]="userLoggedIn" [routerLink]="['/user/login']">Login</button>
+    <button md-button [hidden]="!userLoggedIn" [mdMenuTriggerFor]="menu">{{loggedInUser}} <i class="material-icons">keyboard_arrow_down</i></button>
+    <md-menu #menu="mdMenu" [overlapTrigger]="false" xPosition="before">
+        <button md-menu-item [routerLink]="['/user']" class="dropdown-button">
+            <span class="menu-font"><i class="material-icons center-icon">person</i> My Profile</span>
+        </button>
+        <button md-menu-item (click)="logout()" class="dropdown-button">
+            <span class="menu-font"><i class="material-icons center-icon">power_settings_new</i> Logout</span>
+        </button>
+    </md-menu>   
 </md-toolbar>
