@@ -124,4 +124,16 @@ export class UserService implements CanActivate {
             });
 
     }
+
+    updateUserSettings(user: any) {
+        firebase.database().ref('users/').child(user.id)
+            .update({
+                nickname: user.nickname,
+                emailNotifications: user.emailNotifications,
+                receiveNewsletters: user.receiveNewsletters,
+                loginAlerts: user.loginAlerts,
+                privacy: user.privacy,
+                receiveFriendRequests: user.receiveFriendRequests
+            });
+    }
 }

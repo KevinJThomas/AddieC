@@ -66,4 +66,13 @@ export class UserSettingsComponent implements OnInit {
     reportAbuse() {
         this.router.navigate(['/user/settings/reportAbuse']);
     }
+
+    cancel() {
+        this.router.navigate(['/user']);
+    }
+
+    apply() {
+        this.userSVC.updateUserSettings(this.theUser);
+        this.router.navigate(['/user']);
+    }
 }
