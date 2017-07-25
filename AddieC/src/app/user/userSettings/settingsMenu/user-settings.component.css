@@ -40,3 +40,13 @@ md-checkbox {
 .blocked-users:hover {
     cursor: pointer;
 }
+
+.button-div {
+    margin: auto;
+    text-align: center;
+}
+
+.settings-button {
+    width: 240px;
+    margin-top: 30px;
+}
