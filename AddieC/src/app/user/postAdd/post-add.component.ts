@@ -34,7 +34,7 @@ export class PostAddComponent {
         this.post = new Post(
             this.title,
             this.description,
-            this.userSVC.getUserId()[0],
+            this.userSVC.getUserId().toString(),
             this.imgTitle,
             this.imgSRC.substring(23)
         );

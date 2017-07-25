@@ -1,0 +1,29 @@
+.security-card {
+  width: 400px;
+  margin: 0;
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.question-box {
+    width: 100%;
+}
+
+.security-button {
+    width: 50%;
+    text-align: center;
+}
+
+.input-boxes {
+    width: 100%;
+    padding-top: 10px;
+    margin: auto;
+}
+
+.button-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}

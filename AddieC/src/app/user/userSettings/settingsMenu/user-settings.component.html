@@ -1,54 +1,55 @@
 <app-user-nav-bar></app-user-nav-bar>
-
-<md-tab-group dynamicHeight="true">
-  <md-tab label="General">
-    <div class="tab-content">
-      <div>
-        <md-input-container>
-          <input mdInput placeholder="Nickname" [(ngModel)]=nickname>
-        </md-input-container>
+<div *ngIf="isDataAvailable">
+  <md-tab-group dynamicHeight="true">
+    <md-tab label="General">
+      <div class="tab-content">
+        <div>
+          <md-input-container>
+            <input mdInput placeholder="Nickname" [(ngModel)]=theUser.nickname>
+          </md-input-container>
+        </div>
+        <div>
+          <md-checkbox [(ngModel)]=theUser.emailNotifications>Email Notifications</md-checkbox>
+        </div>
+        <div>
+          <md-checkbox [(ngModel)]=theUser.receiveNewsletters>Receive Newsletters</md-checkbox>
+        </div>
       </div>
-      <div>
-        <md-checkbox [(ngModel)]="checked">Email Notifications</md-checkbox>
+    </md-tab>
+    <md-tab label="Security">
+      <div class="tab-content">
+        <div>
+          <button md-raised-button class="security-button" (click)="resetPassword()">Reset Password</button>        
+        </div>
+        <div>
+          <button md-raised-button class="security-button" (click)="securityQuestion()">Security Question</button>        
+        </div>      
+        <div class="checkbox-space">
+          <md-checkbox [(ngModel)]=theUser.loginAlerts>Login alerts</md-checkbox>
+        </div>
+        <div>
+          <h4 (click)="blockedUsers()" class="blocked-users">Blocked users:</h4>
+        </div>
+        <div *ngFor="let user of blockedUserList">
+          {{user}}
+        </div>
+        <button md-button class="security-button" id="abuse-button" (click)="reportAbuse()">Report Abuse</button>
       </div>
-      <div>
-        <md-checkbox>Receive Newsletters</md-checkbox>
+    </md-tab>
+    <md-tab label="Privacy">
+      <div class="tab-content">
+        <div>
+          <h4>My posts should be:</h4>
+        </div>
+        <md-radio-group class="example-radio-group" [(ngModel)]=theUser.privacy>
+          <md-radio-button class="example-radio-button" *ngFor="let privacy of privacyOptions" [value]=privacy>
+            {{privacy}}
+          </md-radio-button>
+        </md-radio-group>
+        <div class="checkbox-space">
+          <md-checkbox [(ngModel)]=theUser.receiveFriendRequests>Can receive friend requests</md-checkbox>
+        </div>
       </div>
-    </div>
-  </md-tab>
-  <md-tab label="Security">
-    <div class="tab-content">
-      <div>
-        <button md-raised-button class="security-button" (click)="resetPassword()">Reset Password</button>        
-      </div>
-      <div>
-        <button md-raised-button class="security-button" (click)="securityQuestion()">Security Question</button>        
-      </div>      
-      <div class="checkbox-space">
-        <md-checkbox>Login alerts</md-checkbox>
-      </div>
-      <div>
-        <h4 (click)="blockedUsers()" class="blocked-users">Blocked users:</h4>
-      </div>
-      <div *ngFor="let user of myBlockedUsers">
-        {{user}}
-      </div>
-      <button md-button class="security-button" id="abuse-button" (click)="reportAbuse()">Report Abuse</button>
-    </div>
-  </md-tab>
-  <md-tab label="Privacy">
-    <div class="tab-content">
-      <div>
-        <h4>My posts should be:</h4>
-      </div>
-      <md-radio-group class="example-radio-group">
-        <md-radio-button class="example-radio-button" *ngFor="let privacy of privacyOptions" [value]="privacy">
-          {{privacy}}
-        </md-radio-button>
-      </md-radio-group>
-      <div class="checkbox-space">
-        <md-checkbox>Can receive friend requests</md-checkbox>
-      </div>
-    </div>
-  </md-tab>
-</md-tab-group>
+    </md-tab>
+  </md-tab-group>
+</div>
