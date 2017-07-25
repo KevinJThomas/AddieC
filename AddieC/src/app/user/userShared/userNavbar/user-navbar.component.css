@@ -9,3 +9,11 @@
 [hidden] {
   display: none !important;
 }
+
+.dropdown-button {
+  text-align: center;
+}
+
+.menu-font {
+  font-size: 90%;
+}
