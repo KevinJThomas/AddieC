@@ -9,3 +9,19 @@
 [hidden] {
   display: none !important;
 }
+
+.search-bar {
+  width: 20%;  
+}
+
+.center-icon {
+  fill: currentColor;
+  vertical-align: middle;
+  display: inline-block;
+  line-height: 1;
+}
+
+.center-icon:hover {
+  color: #0000ff;
+  cursor: pointer;
+}

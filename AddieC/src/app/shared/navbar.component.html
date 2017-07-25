@@ -1,6 +1,11 @@
 <md-toolbar class="toolbar">
     <a [routerLink]="['/']"><img style="padding-top:10px;padding-right:5px" src="http://placekitten.com/g/45/45" alt="CAT IMG"></a>
-    <button md-button [routerLink]="['/about']">About</button>
+    <button md-button [routerLink]="['/about']">About</button>       
+    <span class="spacer"></span>
+    <md-input-container class="search-bar">
+        <input mdInput id="search" [(ngModel)]="search" name="search" layout-align="center center" #srch="ngModel">        
+    </md-input-container>
+    <i class="material-icons center-icon">search</i>
     <span class="spacer"></span>
     <button md-button [routerLink]="['/user']">{{loggedIn}}</button>
     <button md-button [hidden]="!userLoggedIn" (click)="logout()">Logout</button>    
