@@ -33,6 +33,7 @@ import { SecurityQuestionComponent } from './userSettings/securityQuestion/secur
 import { ReportAbuseComponent } from './userSettings/reportAbuse/report-abuse.component';
 import { ContactsComponent } from './contacts/contacts.component';
 import { UserAboutComponent } from './userAbout/user-about.component';
+import { ContactsComponentDialog } from './userMenu/user-menu.component';
 
 import { TruncatePipe } from './userShared/trunc.pipe';
 
@@ -98,7 +99,8 @@ const UserRoutes: Routes = [
         ReportAbuseComponent,
         ContactsComponent,
         UserAboutComponent,
-        BlockedUsersComponentDialog,        
+        BlockedUsersComponentDialog,
+        ContactsComponentDialog,    
         TruncatePipe
     ],
     providers: [
@@ -106,7 +108,8 @@ const UserRoutes: Routes = [
         PostService
     ],
     entryComponents: [
-        BlockedUsersComponentDialog
+        BlockedUsersComponentDialog,
+        ContactsComponentDialog
     ]
 })
 

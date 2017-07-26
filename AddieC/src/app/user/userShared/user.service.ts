@@ -136,4 +136,11 @@ export class UserService implements CanActivate {
                 receiveFriendRequests: user.receiveFriendRequests
             });
     }
+
+    removeContact(currentUser: any, userIndex: string) {
+        const dbRef = firebase.database().ref('users/').child(currentUser.id).child('contacts');
+        dbRef.orderByValue().equalTo(userIndex).on('child_added', function(snapshot) {
+            snapshot.ref.remove();
+        });
+    }
 }
