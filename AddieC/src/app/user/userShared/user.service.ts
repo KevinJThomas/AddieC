@@ -40,7 +40,7 @@ export class UserService implements CanActivate {
         return false;
     }
 
-    register(email: string, password: string) { // TODO: using an observable may fix login button issue
+    register(email: string, password: string, username: string) { // TODO: using an observable may fix login button issue
         firebase.auth().createUserWithEmailAndPassword(email, password)
             .catch(function(error) {
                 alert(`${error.message} Please try again!`); // using alerts for testing, change to something else later
@@ -55,7 +55,7 @@ export class UserService implements CanActivate {
                 id: newUser.key,
                 email: this.authUser.email,
                 uid: this.authUser.uid,
-                nickname: '',
+                nickname: username,
                 emailNotifications: true,
                 securityQuestionIndex: -1,
                 securityQuestionAnswer: '',
