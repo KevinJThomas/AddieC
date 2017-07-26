@@ -4,7 +4,7 @@ import { MdDialog, MdDialogRef, MD_DIALOG_DATA } from '@angular/material';
 
 import { UserService } from '../../userShared/user.service';
 
-import * as Rx from "rxjs/Rx";
+import * as Rx from 'rxjs/Rx';
 import * as firebase from 'firebase';
 
 @Component({
@@ -32,7 +32,7 @@ export class BlockedUsersComponent implements OnInit {
             const tmp: string[] = snapshot.val();
             this.theUser = Object.keys(tmp).map(key => tmp[key]).filter(item => item.uid === this.userSVC.getUserId())[0];
             if (this.theUser.blockedUsers) {
-                for (let uid of this.theUser.blockedUsers) {
+                for (const uid of this.theUser.blockedUsers) {
                     dbRef.once('value')
                     .then((snapshot) => {
                         const tmp: string[] = snapshot.val();
@@ -44,16 +44,16 @@ export class BlockedUsersComponent implements OnInit {
             } else {
                 this.blockedUserList = ['None'];
                 this.blockedUsersEmpty = true;
-            }            
+            }
         }).then(() =>
         this.isDataAvailable = true);
     }
 
-    unblock(removeUser: string) {        
+    unblock(removeUser: string) {
         const verify = confirm(`Are you sure you want to unblock ` + removeUser + `?`);
 
         if (verify === true) {
-            let userIndex = this.blockedUserList.indexOf(removeUser);
+            const userIndex = this.blockedUserList.indexOf(removeUser);
             console.log('removeUser: ' + removeUser);
             console.log('this.theUser.blockedUsers[userIndex]: ' + this.theUser.blockedUsers[userIndex]);
             this.userSVC.unblock(this.theUser, this.theUser.blockedUsers[userIndex]);
@@ -61,7 +61,7 @@ export class BlockedUsersComponent implements OnInit {
     }
 
     add() {
-        let dialogRef = this.dialog.open(BlockedUsersComponentDialog);
+        const dialogRef = this.dialog.open(BlockedUsersDialogComponent);
         dialogRef.afterClosed().subscribe(result => {
         this.testing = result;
     });
@@ -76,7 +76,7 @@ export class BlockedUsersComponent implements OnInit {
     templateUrl: './blockedUsersDialog/blocked-users-dialog.component.html',
     styleUrls: ['./blockedUsersDialog/blocked-users-dialog.component.css']
 })
-export class BlockedUsersComponentDialog {
 
-    constructor(private dialogRef: MdDialogRef<BlockedUsersComponentDialog>, @Inject(MD_DIALOG_DATA) public data: any) {}
+export class BlockedUsersDialogComponent {
+    constructor(private dialogRef: MdDialogRef<BlockedUsersDialogComponent>, @Inject(MD_DIALOG_DATA) public data: any) {}
 }

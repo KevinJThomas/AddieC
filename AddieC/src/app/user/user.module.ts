@@ -28,7 +28,7 @@ import { PostAddComponent } from './postAdd/post-add.component';
 import { PostEditComponent } from './postEdit/post-edit.component';
 import { UserSettingsComponent } from './userSettings/settingsMenu/user-settings.component';
 import { BlockedUsersComponent } from './userSettings/blockedUsers/blocked-users.component';
-import { BlockedUsersComponentDialog } from './userSettings/blockedUsers/blocked-users.component';
+import { BlockedUsersDialogComponent } from './userSettings/blockedUsers/blocked-users.component';
 import { SecurityQuestionComponent } from './userSettings/securityQuestion/security-question.component';
 import { ReportAbuseComponent } from './userSettings/reportAbuse/report-abuse.component';
 import { ContactsComponent } from './contacts/contacts.component';
@@ -98,7 +98,7 @@ const UserRoutes: Routes = [
         ReportAbuseComponent,
         ContactsComponent,
         UserAboutComponent,
-        BlockedUsersComponentDialog,        
+        BlockedUsersDialogComponent,
         TruncatePipe
     ],
     providers: [
@@ -106,7 +106,7 @@ const UserRoutes: Routes = [
         PostService
     ],
     entryComponents: [
-        BlockedUsersComponentDialog
+        BlockedUsersDialogComponent
     ]
 })
 

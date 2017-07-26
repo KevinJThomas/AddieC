@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { UserService } from '../../userShared/user.service';
-//import * as nodemailer from 'nodemailer';
+// import * as nodemailer from 'nodemailer';
 
 @Component({
     templateUrl: './report-abuse.component.html',
@@ -19,14 +19,14 @@ export class ReportAbuseComponent {
     //     }
     // });
 
-    constructor(private userSVC: UserService, private router: Router) {} 
+    constructor(private userSVC: UserService, private router: Router) {}
 
     // We need to set up a server to be able to send emails. The commented out example is for node.js if we go with that.
     submit() {
         // let mailOptions = {
         //     from: this.userSVC.loggedInUser,
         //     to: 'addiecsite@gmail.com',
-        //     subject: 'Abuse Report', 
+        //     subject: 'Abuse Report',
         //     text: this.message
         // };
 
