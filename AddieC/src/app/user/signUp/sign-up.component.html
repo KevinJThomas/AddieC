@@ -5,8 +5,11 @@
         </md-toolbar>
         <md-card-content>
             <md-input-container class="input-boxes">
-                <input mdInput placeholder="Username" id="email" [(ngModel)]="email" name="email" required #em="ngModel">
-            </md-input-container>      
+                <input mdInput placeholder="Nickname" id="nickname" [(ngModel)]="nickname" name="nickname" required #nn="ngModel">
+            </md-input-container>
+            <md-input-container class="input-boxes">
+                <input mdInput placeholder="Email Address" id="email" [(ngModel)]="email" name="email" required #em="ngModel">
+            </md-input-container>
             <br>
             <md-input-container class="input-boxes">
                 <input mdInput type="password" placeholder="Password" id="password" [(ngModel)]="password" name="password" required #pw1="ngModel">          

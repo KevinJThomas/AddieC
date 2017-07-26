@@ -40,13 +40,13 @@ export class UserService implements CanActivate {
         return false;
     }
 
-    register(email: string, password: string) { // TODO: using an observable may fix login button issue
+    register(email: string, password: string, username: string) { // TODO: using an observable may fix login button issue
         firebase.auth().createUserWithEmailAndPassword(email, password)
             .catch(function(error) {
                 alert(`${error.message} Please try again!`); // using alerts for testing, change to something else later
         });
 
-        let dbRef = firebase.database().ref('users/');
+        const dbRef = firebase.database().ref('users/');
         this.authUser = firebase.auth().currentUser;
 
         if (this.authUser) {
@@ -55,7 +55,7 @@ export class UserService implements CanActivate {
                 id: newUser.key,
                 email: this.authUser.email,
                 uid: this.authUser.uid,
-                nickname: '',
+                nickname: username,
                 emailNotifications: true,
                 securityQuestionIndex: -1,
                 securityQuestionAnswer: '',
@@ -94,7 +94,7 @@ export class UserService implements CanActivate {
     }
 
     unblock(currentUser: any, userIndex: string) {
-        let dbRef = firebase.database().ref('users/').child(currentUser.id).child('blockedUsers');
+        const dbRef = firebase.database().ref('users/').child(currentUser.id).child('blockedUsers');
         dbRef.orderByValue().equalTo(userIndex).on('child_added', function(snapshot) {
             snapshot.ref.remove();
         });

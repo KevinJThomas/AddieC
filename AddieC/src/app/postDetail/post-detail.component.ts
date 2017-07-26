@@ -21,7 +21,7 @@ export class PostDetailComponent implements OnInit {
     getSingle(id: string) {
         const dbRef = firebase.database().ref('/posts');
         dbRef.orderByChild('id')
-            .equalTo(id) //equalTo needs an orderBy() to work properly
+            .equalTo(id) // equalTo needs an orderBy() to work properly
             .once('value')
             .then((snapshot) => {
                 const tmp = snapshot.val();
