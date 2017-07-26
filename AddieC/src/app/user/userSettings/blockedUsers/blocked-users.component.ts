@@ -54,8 +54,6 @@ export class BlockedUsersComponent implements OnInit {
 
         if (verify === true) {
             const userIndex = this.blockedUserList.indexOf(removeUser);
-            console.log('removeUser: ' + removeUser);
-            console.log('this.theUser.blockedUsers[userIndex]: ' + this.theUser.blockedUsers[userIndex]);
             this.userSVC.unblock(this.theUser, this.theUser.blockedUsers[userIndex]);
         }
     }
