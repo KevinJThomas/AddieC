@@ -10,6 +10,7 @@ import { Router } from '@angular/router';
 export class SignUpComponent {
     email: string;
     password: string;
+    nickname: string;
     confirmPassword: string;
     passwordFail = false;
 
@@ -20,7 +21,7 @@ export class SignUpComponent {
             this.passwordFail = true;
         } else {
             this.passwordFail = false;
-            this.userSVC.register(this.email, this.password);
+            this.userSVC.register(this.email, this.password, this.nickname);
             this.userSVC.verifyUser();
         }
     }

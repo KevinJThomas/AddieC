@@ -3,7 +3,7 @@ import { Router } from '@angular/router';
 
 import { UserService } from '../../userShared/user.service';
 
-import * as Rx from "rxjs/Rx";
+import * as Rx from 'rxjs/Rx';
 import * as firebase from 'firebase';
 
 @Component({
@@ -34,7 +34,7 @@ export class UserSettingsComponent implements OnInit {
             const tmp: string[] = snapshot.val();
             this.theUser = Object.keys(tmp).map(key => tmp[key]).filter(item => item.uid === this.userSVC.getUserId())[0];
             if (this.theUser.blockedUsers) {
-                for (let uid of this.theUser.blockedUsers) {
+                for (const uid of this.theUser.blockedUsers) {
                     dbRef.once('value')
                     .then((snapshot) => {
                         const tmp: string[] = snapshot.val();
