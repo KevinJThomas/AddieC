@@ -46,7 +46,7 @@ export class UserService implements CanActivate {
                 alert(`${error.message} Please try again!`); // using alerts for testing, change to something else later
         });
 
-        let dbRef = firebase.database().ref('users/');
+        const dbRef = firebase.database().ref('users/');
         this.authUser = firebase.auth().currentUser;
 
         if (this.authUser) {
@@ -94,7 +94,7 @@ export class UserService implements CanActivate {
     }
 
     unblock(currentUser: any, userIndex: string) {
-        let dbRef = firebase.database().ref('users/').child(currentUser.id).child('blockedUsers');
+        const dbRef = firebase.database().ref('users/').child(currentUser.id).child('blockedUsers');
         dbRef.orderByValue().equalTo(userIndex).on('child_added', function(snapshot) {
             snapshot.ref.remove();
         });
