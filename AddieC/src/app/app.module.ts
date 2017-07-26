@@ -7,6 +7,7 @@ import { NavComponent } from './shared/navbar.component';
 import { HomeComponent } from './home/home.component';
 import { ErrorComponent } from './error/error.component';
 import { AboutComponent } from './about/about.component';
+import { FormsModule } from '@angular/forms';
 import { AppRoutingModule } from './shared/app.routing';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {
@@ -14,7 +15,8 @@ import {
    MdCheckboxModule,
    MdMenuModule,
    MdToolbarModule,
-   MdGridListModule
+   MdGridListModule,
+   MdInputModule
   } from '@angular/material';
 
 import 'hammerjs';
@@ -32,11 +34,13 @@ import { UserModule } from './user/user.module';
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
+    FormsModule,
     MdMenuModule,
     MdToolbarModule,
     MdButtonModule,
     MdCheckboxModule,
     MdGridListModule,
+    MdInputModule,
     UserModule,
     AppRoutingModule // AppRoutingModule needs to be imported last or routing will not work
   ],

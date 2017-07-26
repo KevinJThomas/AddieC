@@ -11,6 +11,7 @@ import { Router } from '@angular/router';
 export class NavComponent {
     userLoggedIn = false;
     loggedInUser: string;
+    search: string;    
 
     constructor(private userSVC: UserService, private router: Router) {
         this.userLoggedIn = userSVC.userLoggedIn;
