@@ -10,6 +10,14 @@
   display: none !important;
 }
 
+.dropdown-button {
+  text-align: center;
+}
+
+.menu-font {
+  font-size: 90%;
+}
+
 .center-icon {
   fill: currentColor;
   vertical-align: middle;
