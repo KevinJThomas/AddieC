@@ -2,11 +2,81 @@
     width: 200px;
     height: 300px;
     border-radius: 10px;
-    margin-top: 40px;
-    margin-left: 15px;
+    margin: auto;
+    display: block;
+}
+
+.button-row {
+    margin: auto;
+    text-align: center;
 }
 
 .user-button {
-    margin-left: 15px;
+    margin: auto;
     width: 200px;
+    border-radius: 10px;
+    text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+    color: white;
+    font-family: 'Dekko';
+    font-size: 19px;
+    margin-top: 10px;
+}
+
+.user-button:hover {
+    color: black;
+}
+
+.spacer {
+    padding-top: 20px;
+    padding-bottom: 20px;
+    border-top: solid 1px #000000;
+}
+
+.mini-img {
+    height: 125px;
+    width: 125px;
+    margin: auto;
+    display: block;
+}
+
+.user-name {
+    margin: auto;
+    text-align: center;
+    margin-top: 30px;
+    font-size: 24px;
+}
+
+.add-post-button {
+    margin-right: 150px;
+    margin-top: 32px;
+    text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+    float: right;
+}
+
+.add-post-button:hover {
+    color: black;
+}
+
+.post-list {
+    width: 80%;
+    margin: auto;
+    display: block;
+    margin-top: 82px;
+}
+
+.post-title {
+    color: white;
+    margin: auto;
+    text-align: center;
+}
+
+.post-title:hover {
+    color: black;
+    cursor: pointer;
+}
+
+.recent-acitivity {
+    text-align: center;
+    font-size: 38px;
+    margin-top: 90px;
 }

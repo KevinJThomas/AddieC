@@ -1,15 +1,33 @@
 <app-user-nav-bar></app-user-nav-bar>
 
-<img class="picture" [src]='profilePicUrl'> <!-- TODO: Why is image flipped? -->
-<div>
-    <button class="user-button" md-button (click)="managePosts()">My Posts</button>
-</div>
-<div>
-    <button class="user-button" md-button (click)="contacts()">Contacts</button>
-</div>
-<div>
-    <button class="user-button" md-button (click)="about()">About</button>
-</div>
-<div>
-    <button class="user-button" md-button (click)="settings()">Settings</button>
+<div *ngIf="isDataAvailable">
+    <div class="user-name">{{userNickname}}</div>
+    <img class="picture" [src]='profilePicUrl'>
+
+    <div class="button-row">
+        <button class="user-button" md-button (click)="viewPosts()">Posts</button>
+        <button class="user-button" md-button (click)="about()">About</button>
+        <button class="user-button" md-button (click)="contacts()">Contacts</button>        
+    </div>
+
+    <div class="recent-acitivity">
+        Recent Activity
+    </div>
+
+    <div>
+        <button md-raised-button class="add-post-button" (click)="addPost()">Add Post</button>
+    </div>
+
+    <div class="post-list" *ngFor="let post of posts">
+        <div class="spacer">
+            <md-list>
+                <md-list-item>
+                    <h4 class="post-title">{{post.title}}</h4>
+                </md-list-item>
+                <md-list-item>
+                    <img class="mini-img" [src]="post.img">
+                </md-list-item>            
+            </md-list>
+        </div>
+    </div>
 </div>
