@@ -7,6 +7,8 @@ md-tab-group {
     margin: auto;
     display: block;
     margin-top: 150px;
+    color: black;
+    text-shadow: none;
 }
 
 .example-radio-group {
@@ -21,16 +23,17 @@ md-tab-group {
 
 md-checkbox {
     margin: 15px;
+    color: black;
+    text-shadow: none;
 }
 
 .checkbox-space {
-    margin-top: 35px;
+    margin-top: 35px;    
 }
 
 .security-button {
     width: 40%;
     margin-top: 10px;
-    text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
 }
 
 .security-button:hover {
@@ -59,13 +62,5 @@ md-checkbox {
 .settings-button {
     width: 240px;
     margin-top: 30px;
-    text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
-}
-
-.settings-button:hover {
     color: black;
-}
-
-input {
-    text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
 }

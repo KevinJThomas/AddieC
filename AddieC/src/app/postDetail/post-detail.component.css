@@ -15,12 +15,12 @@ img {
 }
 
 .back-link {
-    color: #000000;
+    color: white;
     text-decoration: none;
 }
 
 .back-link:hover {
-    color: #0000FF;
+    color: black;
 }
 
 .text-center {

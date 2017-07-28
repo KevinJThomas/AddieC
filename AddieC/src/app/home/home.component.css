@@ -1,6 +1,6 @@
 .picture {
-    width: 45%;
-    height: 45%;
+    width: 60%;
+    height: 60%;
     border-radius: 10px;
     margin: auto;
     display: block;
@@ -12,21 +12,30 @@
 }
 
 .display-image {
-    width: 85%;
-    height: 200px;
+    border-radius: 10px;
+    width: 80%;
+    height: 80%;
+    display: block;
+    margin: auto;
+}
+
+.list-title {
+    text-align: center;
 }
 
 .list-title:hover {
-    color: #0000ff;
+    color: black;
     cursor: pointer;
 }
 
 .spacing {
-    margin-top: 30px;
+    margin-top: 130px;
 }
 
 .card-spacing {
-    padding-bottom: 40px;    
+    height: 200px;
+    width: 300px;
+    margin: 10px;    
 }
 
 .cursive {

@@ -43,6 +43,6 @@ export class PostAddComponent {
     }
 
     cancel() {
-        this.router.navigate(['/user/posts']);
+        this.router.navigate(['/user']);
     }
 }

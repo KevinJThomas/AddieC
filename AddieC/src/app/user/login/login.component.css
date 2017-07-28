@@ -1,3 +1,7 @@
+body {
+    text-shadow: none;
+}
+
 .simlink {
     width: 20%;
     float: left;
@@ -24,6 +28,7 @@
 .login-title {
     margin: auto;    
     font: bold;
+    text-shadow: none;
 }
 
 .submit-button {
@@ -40,7 +45,7 @@
     top: 59%;
     left: 59.5%;
     transform: translate(-50%, -50%);
-    color: #0000ff;
+    color: black;
 }
 
 .home-button {
@@ -51,11 +56,15 @@
     top: 59%;
     left: 41.5%;
     transform: translate(-50%, -50%);
-    color: #0000ff;
+    color: black;
 }
 
 .input-boxes {
     width: 100%;
     padding-top: 10px;
-    margin: auto;    
+    margin: auto;
+}
+
+.mat-card-content {
+  text-shadow: none;
 }
