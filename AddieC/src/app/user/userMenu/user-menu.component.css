@@ -1,9 +1,13 @@
 .picture {
-    width: 200px;
+    width: 240px;
     height: 300px;
     border-radius: 10px;
     margin: auto;
     display: block;
+}
+
+.picture:hover {
+    cursor: pointer;
 }
 
 .button-row {

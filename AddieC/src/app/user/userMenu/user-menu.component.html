@@ -2,7 +2,7 @@
 
 <div *ngIf="isDataAvailable">
     <div class="user-name">{{userNickname}}</div>
-    <img class="picture" [src]='profilePicUrl'>
+    <img class="picture" mdTooltip="Change Profile Picture" mdTooltipPosition="left" (click)="editProfilePicture()" [src]='profilePicUrl'>
 
     <div class="button-row">
         <button class="user-button" md-button (click)="viewPosts()">Posts</button>

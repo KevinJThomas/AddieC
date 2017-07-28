@@ -17,7 +17,7 @@ export class UserMenuComponent implements OnInit {
     theUser: string;
     userNickname: string;
     navOpen = false;
-    profilePicUrl = '../../assets/example_profile_picture.jpg';
+    profilePicUrl: string;
     posts: Post[];
     testing: any;
     isDataAvailable = false;
@@ -40,8 +40,22 @@ export class UserMenuComponent implements OnInit {
 
     contacts() {
         const dialogRef = this.dialog.open(ContactsDialogComponent);
+    }
+
+    editProfilePicture() {
+        const dialogRef = this.dialog.open(ProfilePictureDialogComponent);
         dialogRef.afterClosed().subscribe(result => {
-            this.testing = result;
+            this.isDataAvailable = false;
+            const userDbRef = firebase.database().ref('users/');
+            userDbRef.once('value')
+            .then((snapshot) => {
+                const tmp: string[] = snapshot.val();
+                this.profilePicUrl = Object.keys(tmp)
+                    .map(key => tmp[key])
+                    .filter(item => item.uid === this.userSVC.getUserId())[0]
+                    .profilePicture;
+            }).then(() =>
+            this.isDataAvailable = true);
         });
     }
 
@@ -66,6 +80,10 @@ export class UserMenuComponent implements OnInit {
         .then((snapshot) => {
             const tmp: string[] = snapshot.val();
             this.userNickname = Object.keys(tmp).map(key => tmp[key]).filter(item => item.uid === this.userSVC.getUserId())[0].nickname;
+            this.profilePicUrl = Object.keys(tmp)
+                .map(key => tmp[key])
+                .filter(item => item.uid === this.userSVC.getUserId())[0]
+                .profilePicture;
         }).then(() =>
         this.isDataAvailable = true);
     }
@@ -130,5 +148,57 @@ export class ContactsDialogComponent implements OnInit {
             const userIndex = this.contactsList.indexOf(user);
             this.userSVC.removeContact(this.theUser, this.theUser.contacts[userIndex]);
         }
+    }
+}
+
+@Component({
+    templateUrl: './profilePictureDialog/profile-picture-dialog.component.html',
+    styleUrls: ['./profilePictureDialog/profile-picture-dialog.component.css']
+})
+export class ProfilePictureDialogComponent implements OnInit {
+    theUser: any;
+    profilePicture: string;
+    originalProfilePicture: string;
+    contactsList: string[] = [];
+    contactsEmpty = false;
+    isDataAvailable = false;
+    pictureChanged = false;
+
+    constructor(
+        private dialogRef: MdDialogRef<ProfilePictureDialogComponent>,
+        @Inject(MD_DIALOG_DATA) public data: any,
+        private userSVC: UserService,
+        private router: Router) {}
+
+    ngOnInit() {
+        this.getUser();
+    }
+
+    getUser() {
+        const dbRef = firebase.database().ref('users/');
+        dbRef.once('value')
+        .then((snapshot) => {
+            const tmp: string[] = snapshot.val();
+            this.theUser = Object.keys(tmp).map(key => tmp[key]).filter(item => item.uid === this.userSVC.getUserId())[0];
+            this.profilePicture = this.theUser.profilePicture;
+            this.originalProfilePicture = this.theUser.profilePicture;
+        }).then(() =>
+        this.isDataAvailable = true);
+    }
+
+    fileLoad($event: any) {
+        const myReader: FileReader = new FileReader();
+        const file: File = $event.target.files[0];
+        myReader.readAsDataURL(file);
+
+        myReader.onload = (e: any) => {
+            this.profilePicture = e.target.result;
+        }
+
+        this.pictureChanged = true;
+    }
+
+    updatePicture() {
+        this.userSVC.updateProfilePicture(this.theUser, this.profilePicture);
     }
 }

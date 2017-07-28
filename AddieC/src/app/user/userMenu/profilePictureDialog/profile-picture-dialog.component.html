@@ -1,0 +1,10 @@
+<img class="picture-preview" [src]="profilePicture">
+
+<div class="file-input"> <!-- TODO: Make file input look like angular material (file is not supported in mdInput) -->
+    <input type="file" (change)=fileLoad($event)>
+</div>
+
+<div class="button-row">
+    <button md-raised-button md-dialog-close [disabled]="!pictureChanged" (click)="updatePicture()">Update</button>
+    <button md-raised-button md-dialog-close>Cancel</button>    
+</div>
