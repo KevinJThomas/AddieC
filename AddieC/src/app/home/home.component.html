@@ -3,9 +3,7 @@
 <div class="cursive">Welcome to AddieC!</div>
 <div class="image">
     <img class="picture" [src]='addieUrl'>
-</div>
-
-  
+</div>  
 
 <div class="spacing">   
     <div class="cursive">Top Posts</div>   
@@ -19,7 +17,6 @@
                 <img class="display-image" [src]="post.img">
                 <div>
                     <h4 class="list-title" (click)="choosePost(post)">{{post.title}}</h4>
-                    <p>{{post.content | truncate:140}}</p>
                 </div>
             </div>
         </md-grid-tile>

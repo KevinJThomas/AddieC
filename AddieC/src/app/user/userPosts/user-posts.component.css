@@ -1,8 +1,3 @@
-.simlink:hover {
-    color: #0000ff;
-    cursor: pointer;
-}
-
 .mini-img {
     height: 125px;
     width: 125px;
@@ -12,4 +7,22 @@
     padding-top: 20px;
     padding-bottom: 20px;
     border-top: solid 1px #000000;
+}
+
+button {
+    color: black;
+}
+
+.add-post-button {
+    float: right;
+    margin-top: 20px;
+    background-color: #4CAF50;
+    margin-right: 100px;
+}
+
+.post-list {
+    width:80%;
+    margin:auto;
+    display:block;
+    margin-top: 100px;
 }

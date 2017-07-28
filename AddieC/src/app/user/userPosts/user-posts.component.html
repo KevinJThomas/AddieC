@@ -1,8 +1,8 @@
 <app-user-nav-bar></app-user-nav-bar>
 
-<button md-raised-button style="margin:20px;" (click)="addPost()">Add Post</button>
+<button md-fab mdTooltip="Add Post" class="add-post-button" (click)="addPost()"><i class="material-icons">note_add</i></button>
 
-<div *ngFor="let post of posts">
+<div class="post-list" *ngFor="let post of posts">
     <div class="spacer">
         <md-grid-list cols="6" rowHeight="50px">
             <md-grid-tile [colspan]="1" [rowspan]="2">
