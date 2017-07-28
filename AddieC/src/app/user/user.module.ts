@@ -35,6 +35,7 @@ import { ReportAbuseComponent } from './userSettings/reportAbuse/report-abuse.co
 import { ContactsComponent } from './contacts/contacts.component';
 import { UserAboutComponent } from './userAbout/user-about.component';
 import { ContactsDialogComponent } from './userMenu/user-menu.component';
+import { ProfilePictureDialogComponent } from './userMenu/user-menu.component';
 
 import { TruncatePipe } from './userShared/trunc.pipe';
 
@@ -103,6 +104,7 @@ const UserRoutes: Routes = [
         UserAboutComponent,
         BlockedUsersDialogComponent,
         ContactsDialogComponent,
+        ProfilePictureDialogComponent,
         TruncatePipe
     ],
     providers: [
@@ -111,7 +113,8 @@ const UserRoutes: Routes = [
     ],
     entryComponents: [
         BlockedUsersDialogComponent,
-        ContactsDialogComponent
+        ContactsDialogComponent,
+        ProfilePictureDialogComponent
     ]
 })
 

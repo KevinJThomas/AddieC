@@ -63,6 +63,7 @@ export class UserService implements CanActivate {
                 loginAlerts: false,
                 privacy: 'Friends Only',
                 receiveFriendRequests: true,
+                profilePicture: 'https://firebasestorage.googleapis.com/v0/b/addiec-1026c.appspot.com/o/profilePictures%2Fdefault_profile_picture.jpg?alt=media&token=38b1f86b-94bd-4b83-935e-5663b33f6982'
             });
         }
     }
@@ -123,6 +124,13 @@ export class UserService implements CanActivate {
                 securityQuestionAnswer: answer
             });
 
+    }
+
+    updateProfilePicture(user: any, pictureUrl: string) {
+        firebase.database().ref('users/').child(user.id)
+            .update({
+                profilePicture: pictureUrl
+            });
     }
 
     updateUserSettings(user: any) {

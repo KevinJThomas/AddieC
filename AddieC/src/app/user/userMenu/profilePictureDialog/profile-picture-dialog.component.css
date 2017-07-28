@@ -1,0 +1,16 @@
+.picture-preview {
+    width: 240px;
+    height: 300px;
+}
+
+.button-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  margin-top: 25px;
+}
+
+button {
+    width: 50%;
+    text-align: center;
+}
