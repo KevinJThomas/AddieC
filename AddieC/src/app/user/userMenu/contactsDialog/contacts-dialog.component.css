@@ -1,23 +1,17 @@
-.mat-list >  .mat-list-item:nth-child(2n+1){
+.mat-list >  .mat-list-item:nth-child(2n+1) {
   background-color:#ededed;  
 }
 
-.mat-list >  .mat-list-item:nth-child(2n){  
+.mat-list >  .mat-list-item:nth-child(2n) {  
   background-color:white;
-}
-
-.remove-icon {
-    color: red;
-}
-
-.remove-icon:hover {
-    cursor: pointer;
-    background-color: black;
-    color: white;
 }
 
 .contact-row {
     width: 450px;
+}
+
+.clickable-user {
+    color: white;
 }
 
 .clickable-user:hover {

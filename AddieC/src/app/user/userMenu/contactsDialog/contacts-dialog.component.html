@@ -3,7 +3,6 @@
         <h3 md-subheader>Contacts</h3>
         <md-list-item class="contact-row" *ngFor="let user of contactsList">
             <h4 md-line class="clickable-user">{{user}}</h4>
-            <i class="material-icons remove-icon" (click)="remove(user)">clear</i>
         </md-list-item>
     </md-list>
 </div>

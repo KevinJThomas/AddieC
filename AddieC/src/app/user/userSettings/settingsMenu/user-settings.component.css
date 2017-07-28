@@ -30,11 +30,21 @@ md-checkbox {
 .security-button {
     width: 40%;
     margin-top: 10px;
+    text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+}
+
+.security-button:hover {
+    color: black;
 }
 
 #abuse-button {
     float: right;
-    color: #0000ff;
+    color: red;
+    text-shadow: none;
+}
+
+#abuse-button:hover {
+    color: black;
 }
 
 .blocked-users:hover {
@@ -49,4 +59,13 @@ md-checkbox {
 .settings-button {
     width: 240px;
     margin-top: 30px;
+    text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+}
+
+.settings-button:hover {
+    color: black;
+}
+
+input {
+    text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
 }

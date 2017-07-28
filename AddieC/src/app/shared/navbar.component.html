@@ -13,6 +13,9 @@
         <button md-menu-item [routerLink]="['/user']" class="dropdown-button">
             <span class="menu-font"><i class="material-icons center-icon">person</i> My Profile</span>
         </button>
+        <button md-menu-item [routerLink]="['/user/settings']" class="dropdown-button">
+            <span class="menu-font"><i class="material-icons center-icon">settings</i> Settings</span>
+        </button>
         <button md-menu-item (click)="logout()" class="dropdown-button">
             <span class="menu-font"><i class="material-icons center-icon">power_settings_new</i> Logout</span>
         </button>
