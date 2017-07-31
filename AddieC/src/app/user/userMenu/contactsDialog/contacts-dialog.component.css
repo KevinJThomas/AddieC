@@ -11,10 +11,16 @@
 }
 
 .clickable-user {
-    color: white;
+    text-shadow: none;
 }
 
 .clickable-user:hover {
     cursor: pointer;
-    color: black;
+    color: #0000ff;
+}
+
+.contacts-subheader {
+    text-shadow: none;
+    font-weight: bold;
+    font-size: 17px;
 }
