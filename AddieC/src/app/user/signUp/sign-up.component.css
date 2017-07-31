@@ -19,6 +19,7 @@
 .login-title {
     margin: auto;    
     font: bold;
+    text-shadow: none;
 }
 
 .submit-button {

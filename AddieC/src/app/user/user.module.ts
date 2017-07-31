@@ -32,7 +32,6 @@ import { BlockedUsersComponent } from './userSettings/blockedUsers/blocked-users
 import { BlockedUsersDialogComponent } from './userSettings/blockedUsers/blocked-users.component';
 import { SecurityQuestionComponent } from './userSettings/securityQuestion/security-question.component';
 import { ReportAbuseComponent } from './userSettings/reportAbuse/report-abuse.component';
-import { ContactsComponent } from './contacts/contacts.component';
 import { UserAboutComponent } from './userAbout/user-about.component';
 import { ContactsDialogComponent } from './userMenu/user-menu.component';
 import { ProfilePictureDialogComponent } from './userMenu/user-menu.component';
@@ -56,7 +55,6 @@ const UserRoutes: Routes = [
             { path: 'posts', component: UserPostsComponent, canActivate: [UserService] },
             { path: 'addPost', component: PostAddComponent, canActivate: [UserService] },
             { path: 'editPost/:id', component: PostEditComponent, canActivate: [UserService] },
-            { path: 'contacts', component: ContactsComponent, canActivate: [UserService] },
             { path: 'about', component: UserAboutComponent, canActivate: [UserService] },
             { path: '', component: UserMenuComponent, canActivate: [UserService] }
         ]
@@ -100,7 +98,6 @@ const UserRoutes: Routes = [
         BlockedUsersComponent,
         SecurityQuestionComponent,
         ReportAbuseComponent,
-        ContactsComponent,
         UserAboutComponent,
         BlockedUsersDialogComponent,
         ContactsDialogComponent,
