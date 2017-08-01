@@ -1,18 +1,19 @@
-.mat-list >  .mat-list-item:nth-child(2n+1){
-  background-color:#ededed;  
+.mat-list >  .mat-list-item:nth-child(2n+1) {
+    background-color:#ededed;  
 }
 
-.mat-list >  .mat-list-item:nth-child(2n){  
-  background-color:white;
+.mat-list >  .mat-list-item:nth-child(2n) {  
+    background-color:white;
 }
 
 .blocked-card {
-  width: 400px;
-  margin: 0;
-  position: absolute;
-  top: 40%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+    width: 400px;
+    margin: 0;
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-shadow: none;
 }
 
 .blocked-button {
@@ -21,7 +22,7 @@
 }
 
 .button-row {
-  display: flex;
-  align-items: center;
-  justify-content: space-around;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
 }
