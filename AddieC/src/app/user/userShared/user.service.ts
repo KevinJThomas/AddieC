@@ -63,7 +63,8 @@ export class UserService implements CanActivate {
                 loginAlerts: false,
                 privacy: 'Friends Only',
                 receiveFriendRequests: true,
-                profilePicture: 'https://firebasestorage.googleapis.com/v0/b/addiec-1026c.appspot.com/o/profilePictures%2Fdefault_profile_picture.jpg?alt=media&token=38b1f86b-94bd-4b83-935e-5663b33f6982'
+                profilePicture: 'https://firebasestorage.googleapis.com/v0/b/addiec-1026c.appspot.com/o/profilePictures%2Fdefault_profile_picture.jpg?alt=media&token=38b1f86b-94bd-4b83-935e-5663b33f6982',
+                aboutMe: ''
             });
         }
     }
@@ -142,6 +143,15 @@ export class UserService implements CanActivate {
                 loginAlerts: user.loginAlerts,
                 privacy: user.privacy,
                 receiveFriendRequests: user.receiveFriendRequests
+            });
+    }
+
+    updateUserAbout(user: any) {
+        firebase.database().ref('users/').child(user.id)
+            .update({
+                nickname: user.nickname,
+                aboutMe: user.aboutMe,
+                age: user.age
             });
     }
 

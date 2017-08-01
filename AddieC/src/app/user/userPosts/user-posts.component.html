@@ -1,6 +1,7 @@
 <app-user-nav-bar></app-user-nav-bar>
 
 <button md-fab mdTooltip="Add Post" mdTooltipPosition="left" class="add-post-button" (click)="addPost()"><i class="material-icons">note_add</i></button>
+<span class="back-button" (click)="back()">Back to Profile</span>
 
 <div class="post-list" *ngFor="let post of posts">
     <div class="spacer">

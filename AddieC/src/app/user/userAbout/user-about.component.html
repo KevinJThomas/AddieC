@@ -1,2 +1,27 @@
-<app-user-nav-bar></app-user-nav-bar>
-<h1>User About Page</h1>
+<div *ngIf="isDataAvailable">
+    <app-user-nav-bar></app-user-nav-bar>
+
+    <md-list class="about-list">
+        <md-list-item>
+            <md-input-container>
+                <input mdInput placeholder="Nickname" [(ngModel)]=theUser.nickname>
+            </md-input-container>            
+        </md-list-item>
+        <md-list-item class="about-me-box">
+            <md-input-container class="input-boxes about-me-box">
+                <textarea mdInput class="about-me-box" placeholder="About Me" id="aboutMe" [(ngModel)]=theUser.aboutMe name="aboutMe"
+                #abtMe="ngModel"></textarea>
+            </md-input-container>
+        </md-list-item>
+        <md-list-item>
+            <div class="age-display" (click)="test()">Age: {{theUser.age}}</div>
+        </md-list-item>
+        <md-list-item class="age-slider-display">
+            <md-slider class="age-slider" [max]="100" [min]="1" [thumb-label]="true" [(ngModel)]=theUser.age></md-slider>         
+        </md-list-item>
+    </md-list>
+    <div class="button-div">
+        <button md-raised-button class="about-button" (click)="apply()">Apply</button>
+        <button md-raised-button class="about-button" (click)="cancel()">Cancel</button>
+    </div>
+</div>

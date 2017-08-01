@@ -16,7 +16,8 @@ import {
    MdDialogModule,
    MdSelectModule,
    MdIconModule,
-   MdTooltipModule
+   MdTooltipModule,
+   MdSliderModule
   } from '@angular/material';
 
 import { UserNavComponent } from './userShared/userNavbar/user-navbar.component';
@@ -79,6 +80,7 @@ const UserRoutes: Routes = [
         MdSelectModule,
         MdIconModule,
         MdTooltipModule,
+        MdSliderModule,
         RouterModule.forChild(UserRoutes)
     ],
     exports: [

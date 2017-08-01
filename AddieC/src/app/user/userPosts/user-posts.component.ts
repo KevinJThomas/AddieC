@@ -52,4 +52,8 @@ export class UserPostsComponent implements OnInit {
             alert('Nothing deleted!');
         }
     }
+
+    back() {
+        this.router.navigate(['/user']);
+    }
 }

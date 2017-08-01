@@ -1,0 +1,39 @@
+.about-me-box {
+    height: 200px;
+}
+
+.input-boxes {
+    width: 100%;
+    padding-top: 10px;
+    margin: auto;
+}
+
+.about-list {
+    width: 35%;
+    margin: auto;
+    margin-top: 10%;
+    text-shadow: none;
+}
+
+.age-slider {
+    width: 100%;
+}
+
+.age-display {
+    margin-top: 100px;
+}
+
+.age-slider-display {
+    margin-top: 50px;
+}
+
+.button-div {
+    margin: auto;
+    text-align: center;
+}
+
+.about-button {
+    width: 17%;
+    margin-top: 35px;
+    color: black;
+}
