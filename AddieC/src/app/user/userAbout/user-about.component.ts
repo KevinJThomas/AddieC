@@ -1,8 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { FormControl } from '@angular/forms';
 
 import { UserService } from '../userShared/user.service';
 
+import 'rxjs/add/operator/startWith';
+import 'rxjs/add/operator/map';
 import * as Rx from 'rxjs/Rx';
 import * as firebase from 'firebase';
 
@@ -13,8 +16,67 @@ import * as firebase from 'firebase';
 export class UserAboutComponent {
     theUser: any;
     isDataAvailable = false;
+    stateCtrl: FormControl;
+    filteredStates: any;
+    states = [
+        'Alabama',
+        'Alaska',
+        'Arizona',
+        'Arkansas',
+        'California',
+        'Colorado',
+        'Connecticut',
+        'Delaware',
+        'Florida',
+        'Georgia',
+        'Hawaii',
+        'Idaho',
+        'Illinois',
+        'Indiana',
+        'Iowa',
+        'Kansas',
+        'Kentucky',
+        'Louisiana',
+        'Maine',
+        'Maryland',
+        'Massachusetts',
+        'Michigan',
+        'Minnesota',
+        'Mississippi',
+        'Missouri',
+        'Montana',
+        'Nebraska',
+        'Nevada',
+        'New Hampshire',
+        'New Jersey',
+        'New Mexico',
+        'New York',
+        'North Carolina',
+        'North Dakota',
+        'Ohio',
+        'Oklahoma',
+        'Oregon',
+        'Pennsylvania',
+        'Rhode Island',
+        'South Carolina',
+        'South Dakota',
+        'Tennessee',
+        'Texas',
+        'Utah',
+        'Vermont',
+        'Virginia',
+        'Washington',
+        'West Virginia',
+        'Wisconsin',
+        'Wyoming',
+    ];
 
-    constructor(private router: Router, private userSVC: UserService) {}
+    constructor(private router: Router, private userSVC: UserService) {
+        this.stateCtrl = new FormControl();
+        this.filteredStates = this.stateCtrl.valueChanges
+        .startWith(null)
+        .map(name => this.filterStates(name));
+    }
 
     ngOnInit() {
         this.getUser();
@@ -31,8 +93,9 @@ export class UserAboutComponent {
         this.isDataAvailable = true);
     }
 
-    test() {
-        console.log(this.theUser.age);
+    filterStates(val: string) {
+        return val ? this.states.filter(s => s.toLowerCase().indexOf(val.toLowerCase()) === 0)
+                : this.states;
     }
 
     cancel() {

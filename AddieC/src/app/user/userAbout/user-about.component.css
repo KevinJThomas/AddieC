@@ -24,7 +24,7 @@
 }
 
 .age-slider-display {
-    margin-top: 50px;
+    margin-top: 30px;
 }
 
 .button-div {
@@ -36,4 +36,12 @@
     width: 17%;
     margin-top: 35px;
     color: black;
+}
+
+.mat-option {
+    text-shadow: none;
+}
+
+.state-select {
+    margin-top: 15px;
 }

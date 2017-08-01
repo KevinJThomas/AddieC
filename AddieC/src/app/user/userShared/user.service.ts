@@ -151,7 +151,8 @@ export class UserService implements CanActivate {
             .update({
                 nickname: user.nickname,
                 aboutMe: user.aboutMe,
-                age: user.age
+                age: user.age,
+                state: user.state
             });
     }
 

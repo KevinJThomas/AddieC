@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule, Routes } from '@angular/router';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import {
    MdButtonModule,
    MdCheckboxModule,
@@ -17,7 +17,8 @@ import {
    MdSelectModule,
    MdIconModule,
    MdTooltipModule,
-   MdSliderModule
+   MdSliderModule,
+   MdAutocompleteModule
   } from '@angular/material';
 
 import { UserNavComponent } from './userShared/userNavbar/user-navbar.component';
@@ -36,6 +37,7 @@ import { ReportAbuseComponent } from './userSettings/reportAbuse/report-abuse.co
 import { UserAboutComponent } from './userAbout/user-about.component';
 import { ContactsDialogComponent } from './userMenu/user-menu.component';
 import { ProfilePictureDialogComponent } from './userMenu/user-menu.component';
+import { DescriptionDialogComponent } from './userMenu/user-menu.component';
 
 import { TruncatePipe } from './userShared/trunc.pipe';
 
@@ -66,6 +68,7 @@ const UserRoutes: Routes = [
     imports: [
         CommonModule,
         FormsModule,
+        ReactiveFormsModule,
         MdMenuModule,
         MdToolbarModule,
         MdButtonModule,
@@ -81,6 +84,7 @@ const UserRoutes: Routes = [
         MdIconModule,
         MdTooltipModule,
         MdSliderModule,
+        MdAutocompleteModule,
         RouterModule.forChild(UserRoutes)
     ],
     exports: [
@@ -104,6 +108,7 @@ const UserRoutes: Routes = [
         BlockedUsersDialogComponent,
         ContactsDialogComponent,
         ProfilePictureDialogComponent,
+        DescriptionDialogComponent,
         TruncatePipe
     ],
     providers: [
@@ -113,7 +118,8 @@ const UserRoutes: Routes = [
     entryComponents: [
         BlockedUsersDialogComponent,
         ContactsDialogComponent,
-        ProfilePictureDialogComponent
+        ProfilePictureDialogComponent,
+        DescriptionDialogComponent
     ]
 })
 
