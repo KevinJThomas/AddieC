@@ -28,6 +28,6 @@ export class HomeComponent implements OnInit {
     }
 
     choosePost(post: Post) {
-        this.router.navigate(['/post', post.id]);
+        this.router.navigate(['/post', post.id, 'Home']);
     }
 }
