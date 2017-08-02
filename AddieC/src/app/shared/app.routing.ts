@@ -11,7 +11,7 @@ import { PostDetailComponent } from '../postDetail/post-detail.component';
         RouterModule.forRoot([
             { path: '' , component: HomeComponent},
             { path: 'about', component: AboutComponent},
-            { path: 'post/:id', component: PostDetailComponent},
+            { path: 'post/:id/:home', component: PostDetailComponent},
             { path: '**' , component: ErrorComponent }
         ])
     ],

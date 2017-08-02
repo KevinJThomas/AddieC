@@ -10,11 +10,13 @@ import { Post } from '../user/userShared/post';
 
 export class PostDetailComponent implements OnInit {
     singlePost: Post;
+    backDestination: string;
 
     constructor(private route: ActivatedRoute, private router: Router) {}
 
     ngOnInit() {
         const postId = this.route.snapshot.params['id'];
+        this.backDestination = this.route.snapshot.params['home'];
         this.getSingle(postId);
     }
 
@@ -33,5 +35,14 @@ export class PostDetailComponent implements OnInit {
                 const img = transform[0].img;
                 this.singlePost = new Post(title, content, uid, imgTitle, img)
             })
+    }
+
+    back() {
+        if (this.backDestination === 'Profile') {
+            this.router.navigate(['/user']);
+        } 
+        else {
+            this.router.navigate(['']);
+        }
     }
 }

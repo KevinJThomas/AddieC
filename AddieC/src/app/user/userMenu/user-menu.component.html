@@ -51,7 +51,7 @@
         <div class="spacer">
             <md-list>
                 <md-list-item>
-                    <h4 class="post-title">{{post.title}}</h4>
+                    <h4 class="post-title" (click)="choosePost(post)">{{post.title}}</h4>
                 </md-list-item>
                 <md-list-item>
                     <img class="mini-img" [src]="post.img">

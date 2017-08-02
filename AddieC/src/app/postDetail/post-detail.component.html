@@ -1,7 +1,5 @@
 <div class="text-left">
-    <a class="back-link" [routerLink]="['']">
-        <h4>Back to Home</h4>
-    </a>
+    <h4 class="back-link" (click)="back()">Back to {{backDestination}}</h4> <!-- fix this -->
 </div>
 
 <div class="row-spacing">

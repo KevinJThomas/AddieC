@@ -37,6 +37,10 @@ export class UserMenuComponent implements OnInit {
         this.router.navigate(['']);
     }
 
+    choosePost(post: Post) {
+        this.router.navigate(['/post', post.id, 'Profile']);
+    }
+
     contacts() {
         const dialogRef = this.dialog.open(ContactsDialogComponent);
     }
