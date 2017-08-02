@@ -80,3 +80,25 @@
     font-size: 38px;
     margin-top: 90px;
 }
+
+md-card {
+    text-shadow: none;
+    background-color: white;
+}
+
+.about-card {
+    width: 45%;
+    margin: auto;
+    height: 250px;
+    border-radius: 10px;
+}
+
+.summary {
+    text-align: center;
+    margin-top: 60px;
+    font-size: 22px;
+}
+
+.user-description {
+    cursor: pointer;
+}

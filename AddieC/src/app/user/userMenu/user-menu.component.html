@@ -10,6 +10,35 @@
         <button class="user-button" md-button (click)="contacts()">Contacts</button>        
     </div>
 
+    <div class="summary">
+        Summary
+    </div>
+
+    <md-card class="about-card">
+        <md-grid-list cols="2" rowHeight="85px">
+            <md-grid-tile [colspan]="1" [rowspan]="3">
+                <div class="user-description" (click)="viewSummary()">
+                    {{theUser.aboutMe | truncate:200}}
+                </div>
+            </md-grid-tile>
+            <md-grid-tile>
+                <div>
+                    Nickname: {{theUser.nickname}}
+                </div>
+            </md-grid-tile>
+            <md-grid-tile>
+                <div>
+                    Age: {{theUser.age}}
+                </div>
+            </md-grid-tile>
+            <md-grid-tile>
+                <div>
+                    Lives in: {{theUser.state}}
+                </div>
+            </md-grid-tile>
+        </md-grid-list>
+    </md-card>
+
     <div class="recent-acitivity">
         Recent Activity
     </div>

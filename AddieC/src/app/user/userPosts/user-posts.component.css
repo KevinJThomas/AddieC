@@ -15,14 +15,24 @@ button {
 
 .add-post-button {
     float: right;
-    margin-top: 20px;
+    margin-top: 2%;
     background-color: #4CAF50;
-    margin-right: 100px;
+    margin-right: 10%;
+}
+
+.back-button {
+    display: inline-block;
+    margin-top: 4%;
+    margin-left: 10%;
+}
+
+.back-button:hover {
+    cursor: pointer;
+    color: black;    
 }
 
 .post-list {
     width:80%;
     margin:auto;
     display:block;
-    margin-top: 100px;
 }

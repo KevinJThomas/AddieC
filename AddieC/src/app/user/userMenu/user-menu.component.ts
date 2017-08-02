@@ -14,7 +14,7 @@ import * as firebase from 'firebase';
 })
 
 export class UserMenuComponent implements OnInit {
-    theUser: string;
+    theUser: any;
     userNickname: string;
     navOpen = false;
     profilePicUrl: string;
@@ -25,7 +25,6 @@ export class UserMenuComponent implements OnInit {
     constructor(private userSVC: UserService, private router: Router, private dialog: MdDialog, private postSVC: PostService) { }
 
     ngOnInit() {
-        this.theUser = this.userSVC.loggedInUser;
         this.getPosts();
     }
 
@@ -40,6 +39,10 @@ export class UserMenuComponent implements OnInit {
 
     contacts() {
         const dialogRef = this.dialog.open(ContactsDialogComponent);
+    }
+
+    viewSummary() {
+        const dialogRef = this.dialog.open(DescriptionDialogComponent);
     }
 
     editProfilePicture() {
@@ -80,6 +83,9 @@ export class UserMenuComponent implements OnInit {
         .then((snapshot) => {
             const tmp: string[] = snapshot.val();
             this.userNickname = Object.keys(tmp).map(key => tmp[key]).filter(item => item.uid === this.userSVC.getUserId())[0].nickname;
+            this.theUser = Object.keys(tmp)
+                .map(key => tmp[key])
+                .filter(item => item.uid === this.userSVC.getUserId())[0];
             this.profilePicUrl = Object.keys(tmp)
                 .map(key => tmp[key])
                 .filter(item => item.uid === this.userSVC.getUserId())[0]
@@ -159,8 +165,6 @@ export class ProfilePictureDialogComponent implements OnInit {
     theUser: any;
     profilePicture: string;
     originalProfilePicture: string;
-    contactsList: string[] = [];
-    contactsEmpty = false;
     isDataAvailable = false;
     pictureChanged = false;
 
@@ -200,5 +204,32 @@ export class ProfilePictureDialogComponent implements OnInit {
 
     updatePicture() {
         this.userSVC.updateProfilePicture(this.theUser, this.profilePicture);
+    }
+}
+
+@Component({
+    templateUrl: './descriptionDialog/description-dialog.component.html',
+    styleUrls: ['./descriptionDialog/description-dialog.component.css']
+})
+export class DescriptionDialogComponent implements OnInit {
+    theUser: any;
+    isDataAvailable = false;
+
+    constructor(
+        private dialogRef: MdDialogRef<DescriptionDialogComponent>,
+        private userSVC: UserService) {}
+
+    ngOnInit() {
+        this.getUser();
+    }
+
+    getUser() {
+        const dbRef = firebase.database().ref('users/');
+        dbRef.once('value')
+        .then((snapshot) => {
+            const tmp: string[] = snapshot.val();
+            this.theUser = Object.keys(tmp).map(key => tmp[key]).filter(item => item.uid === this.userSVC.getUserId())[0];
+        }).then(() =>
+        this.isDataAvailable = true);
     }
 }
